@@ -86,9 +86,12 @@ COPY --chown=nodejs:nodejs --from=deps /app/node_modules ./node_modules
 # Copy application source code
 # --chown=nodejs:nodejs: Change ownership to non-root user
 COPY --chown=nodejs:nodejs package*.json ./
-COPY --chown=nodejs:nodejs server.js ./           # Main server file
-COPY --chown=nodejs:nodejs server ./server        # Route handlers
-COPY --chown=nodejs:nodejs prisma ./prisma        # Prisma schema
+# Main server file
+COPY --chown=nodejs:nodejs server.js ./
+# Route handlers
+COPY --chown=nodejs:nodejs server ./server
+# Prisma schema
+COPY --chown=nodejs:nodejs prisma ./prisma
 
 # Switch to non-root user (security best practice)
 USER nodejs
