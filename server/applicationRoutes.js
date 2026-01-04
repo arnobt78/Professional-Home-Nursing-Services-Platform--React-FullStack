@@ -4,12 +4,12 @@ import bcrypt from "bcrypt";
 
 const router = express.Router();
 
-// Explicitly pass VITE_DATABASE_URL to PrismaClient
+// Explicitly pass DATABASE_URL to PrismaClient
 console.log("Initializing Prisma Client...");
 const prisma = new PrismaClient({
   datasources: {
     db: {
-      url: process.env.VITE_DATABASE_URL,
+      url: process.env.DATABASE_URL,
     },
   },
 });
@@ -20,14 +20,14 @@ router.post("/api/admin/login", async (req, res) => {
   const { email, password } = req.body;
 
   // Validate email and password
-  if (email !== process.env.VITE_ADMIN_EMAIL) {
+  if (email !== process.env.ADMIN_EMAIL) {
     return res.status(401).json({ error: "Invalid email or password" });
   }
 
   // Compare the hashed password
   const isPasswordValid = await bcrypt.compare(
     password,
-    process.env.VITE_ADMIN_PASSWORD_HASH || ""
+    process.env.ADMIN_PASSWORD_HASH || ""
   );
 
   if (!isPasswordValid) {

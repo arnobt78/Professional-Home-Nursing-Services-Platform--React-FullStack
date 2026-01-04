@@ -10,19 +10,19 @@ const router = express.Router();
 
 //     // Configure nodemailer transporter
 //     let transporter = nodemailer.createTransport({
-//       host: process.env.VITE_SMTP_HOST, // SMTP host
-//       port: process.env.VITE_SMTP_PORT, // SMTP port
-//       secure: process.env.VITE_SMTP_SECURE === "true", // Use SSL/TLS
+//       host: process.env.SMTP_HOST, // SMTP host
+//       port: process.env.SMTP_PORT, // SMTP port
+//       secure: process.env.SMTP_SECURE === "true", // Use SSL/TLS
 //       auth: {
-//         user: process.env.VITE_EMAIL_USER, // Email address
-//         pass: process.env.VITE_EMAIL_PASS, // Email password
+//         user: process.env.EMAIL_USER, // Email address
+//         pass: process.env.EMAIL_PASS, // Email password
 //       },
 //     });
 
 //     // Email content
 //     const mailOptions = {
-//       from: `"Sernitas Care" <${process.env.VITE_EMAIL_USER}>`, // Sender address
-//       to: process.env.VITE_EMAIL_USER, // Your email address to receive messages
+//       from: `"Sernitas Care" <${process.env.EMAIL_USER}>`, // Sender address
+//       to: process.env.EMAIL_USER, // Your email address to receive messages
 //       subject: `New Message from ${fullname}`,
 //       text: `
 //         Name: ${fullname}
@@ -52,19 +52,19 @@ router.post("/api/send-email", async (req, res) => {
 
     // Configure nodemailer transporter
     let transporter = nodemailer.createTransport({
-      host: process.env.VITE_SMTP_HOST, // SMTP host
-      port: process.env.VITE_SMTP_PORT, // SMTP port
-      secure: process.env.VITE_SMTP_SECURE === "true", // Use SSL/TLS
+      host: process.env.SMTP_HOST, // SMTP host
+      port: process.env.SMTP_PORT, // SMTP port
+      secure: process.env.SMTP_SECURE === "true", // Use SSL/TLS
       auth: {
-        user: process.env.VITE_EMAIL_USER, // Email address
-        pass: process.env.VITE_EMAIL_PASS, // Email password
+        user: process.env.EMAIL_USER, // Email address
+        pass: process.env.EMAIL_PASS, // Email password
       },
     });
 
     // Email content
     const mailOptions = {
-      from: `"Sernitas Care" <${process.env.VITE_EMAIL_USER}>`, // Sender address
-      to: `${process.env.VITE_EMAIL_USER}, ${process.env.VITE_HR_USER}`, // Send to both emails
+      from: `"Sernitas Care" <${process.env.EMAIL_USER}>`, // Sender address
+      to: `${process.env.EMAIL_USER}, ${process.env.HR_USER}`, // Send to both emails
       subject: `New Message from ${fullname}`,
       text: `
         A new message has been submitted via contact page.
@@ -102,20 +102,20 @@ router.post("/api/send-application-notification", async (req, res) => {
 
     // Configure nodemailer transporter
     let transporter = nodemailer.createTransport({
-      host: process.env.VITE_SMTP_HOST, // SMTP host
-      port: process.env.VITE_SMTP_PORT, // SMTP port
-      secure: process.env.VITE_SMTP_SECURE === "true", // Use SSL/TLS
+      host: process.env.SMTP_HOST, // SMTP host
+      port: process.env.SMTP_PORT, // SMTP port
+      secure: process.env.SMTP_SECURE === "true", // Use SSL/TLS
       auth: {
-        user: process.env.VITE_EMAIL_USER, // Email address
-        pass: process.env.VITE_EMAIL_PASS, // Email password
+        user: process.env.EMAIL_USER, // Email address
+        pass: process.env.EMAIL_PASS, // Email password
       },
     });
 
     // Email content
     const mailOptions = {
-      from: `"Sernitas Care" <${process.env.VITE_EMAIL_USER}>`, // Sender address
-      // to: process.env.VITE_EMAIL_USER, // Your email address to receive notifications
-      to: `${process.env.VITE_EMAIL_USER}, ${process.env.VITE_HR_USER}`, // Send to both emails
+      from: `"Sernitas Care" <${process.env.EMAIL_USER}>`, // Sender address
+      // to: process.env.EMAIL_USER, // Your email address to receive notifications
+      to: `${process.env.EMAIL_USER}, ${process.env.HR_USER}`, // Send to both emails
       subject: "New Pflege Application Submitted",
       text: `
         A new pflege application has been submitted.
@@ -151,20 +151,20 @@ router.post("/api/send-home-consultation-email", async (req, res) => {
 
     // Configure nodemailer transporter
     let transporter = nodemailer.createTransport({
-      host: process.env.VITE_SMTP_HOST, // SMTP host
-      port: process.env.VITE_SMTP_PORT, // SMTP port
-      secure: process.env.VITE_SMTP_SECURE === "true", // Use SSL/TLS
+      host: process.env.SMTP_HOST, // SMTP host
+      port: process.env.SMTP_PORT, // SMTP port
+      secure: process.env.SMTP_SECURE === "true", // Use SSL/TLS
       auth: {
-        user: process.env.VITE_EMAIL_USER, // Email address
-        pass: process.env.VITE_EMAIL_PASS, // Email password
+        user: process.env.EMAIL_USER, // Email address
+        pass: process.env.EMAIL_PASS, // Email password
       },
     });
 
     // Email content
     const mailOptions = {
-      from: `"Sernitas Care" <${process.env.VITE_EMAIL_USER}>`, // Sender address
-      // to: process.env.VITE_EMAIL_USER, // Your email address to receive messages
-      to: `${process.env.VITE_EMAIL_USER}, ${process.env.VITE_HR_USER}`, // Send to both emails
+      from: `"Sernitas Care" <${process.env.EMAIL_USER}>`, // Sender address
+      // to: process.env.EMAIL_USER, // Your email address to receive messages
+      to: `${process.env.EMAIL_USER}, ${process.env.HR_USER}`, // Send to both emails
       subject: `New Callback Request from ${fullname}`,
       text: `
         A new callback request has been submitted via home consulation page.
@@ -208,19 +208,19 @@ router.post("/api/send-job-application", async (req, res) => {
     } = req.body;
 
     let transporter = nodemailer.createTransport({
-      host: process.env.VITE_SMTP_HOST,
-      port: process.env.VITE_SMTP_PORT,
-      secure: process.env.VITE_SMTP_SECURE === "true",
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      secure: process.env.SMTP_SECURE === "true",
       auth: {
-        user: process.env.VITE_EMAIL_USER,
-        pass: process.env.VITE_EMAIL_PASS,
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     const mailOptions = {
-      from: `"Sernitas Care" <${process.env.VITE_EMAIL_USER}>`,
-      // to: process.env.VITE_EMAIL_USER,
-      to: `${process.env.VITE_EMAIL_USER}, ${process.env.VITE_HR_USER}`, // Send to both emails
+      from: `"Sernitas Care" <${process.env.EMAIL_USER}>`,
+      // to: process.env.EMAIL_USER,
+      to: `${process.env.EMAIL_USER}, ${process.env.HR_USER}`, // Send to both emails
       subject: `Neue Bewerbung: ${firstname} ${lastname}`,
       text: `
         A new job application has been submitted via job apply page.
@@ -263,19 +263,19 @@ router.post("/api/send-comment", async (req, res) => {
     const { fullname, email, comment } = req.body;
 
     let transporter = nodemailer.createTransport({
-      host: process.env.VITE_SMTP_HOST,
-      port: process.env.VITE_SMTP_PORT,
-      secure: process.env.VITE_SMTP_SECURE === "true",
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      secure: process.env.SMTP_SECURE === "true",
       auth: {
-        user: process.env.VITE_EMAIL_USER,
-        pass: process.env.VITE_EMAIL_PASS,
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     const mailOptions = {
-      from: `"Sernitas Care" <${process.env.VITE_EMAIL_USER}>`,
-      // to: process.env.VITE_EMAIL_USER,
-      to: `${process.env.VITE_EMAIL_USER}, ${process.env.VITE_HR_USER}`, // Send to both emails
+      from: `"Sernitas Care" <${process.env.EMAIL_USER}>`,
+      // to: process.env.EMAIL_USER,
+      to: `${process.env.EMAIL_USER}, ${process.env.HR_USER}`, // Send to both emails
       subject: `New Comment from ${fullname}`,
       text: `
         A new comment has been submitted via pflege blog page.
