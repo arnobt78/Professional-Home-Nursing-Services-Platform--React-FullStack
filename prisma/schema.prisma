@@ -1,39 +1,94 @@
-// filepath: /prisma/schema.prisma
+// ========================================================================
+// PRISMA SCHEMA - Database Schema Definition
+// ========================================================================
+// 
+// This file defines the database schema for the Sernitas Care application.
+// Prisma uses this schema to generate type-safe database client code.
+// 
+// Database: MongoDB (NoSQL document database)
+// 
+// Key Concepts:
+//   - datasource: Database connection configuration
+//   - generator: Code generation settings (creates Prisma Client)
+//   - model: Database collection/table structure
+// 
+// ========================================================================
+
+// Database Connection Configuration
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+  provider = "mongodb"                    // Database provider (MongoDB)
+  url      = env("DATABASE_URL")          // Connection string from environment variable
+  // DATABASE_URL format: mongodb://user:password@host:port/database?options
 }
 
+// Prisma Client Generator Configuration
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client-js"          // Generate JavaScript/TypeScript client
+  // This generates the PrismaClient class used in applicationRoutes.js
 }
 
+/**
+ * Application Model
+ * 
+ * Represents a job application submitted through the website.
+ * Stored in MongoDB collection named "Application"
+ * 
+ * Field Types:
+ *   - @id: Primary key field
+ *   - @default(auto()): Auto-generate value (ObjectId for MongoDB)
+ *   - @map("_id"): Map to MongoDB's _id field
+ *   - @db.ObjectId: MongoDB ObjectId type
+ *   - String?: Optional field (nullable)
+ *   - Boolean: Boolean field
+ *   - DateTime: Date/time field
+ *   - @default(now()): Default to current timestamp
+ *   - @default("Pending"): Default string value
+ */
 model Application {
+  // Primary Key
   id                     String   @id @default(auto()) @map("_id") @db.ObjectId
+  
+  // Personal Information
   firstName              String
   lastName               String
   birthDate              String
   gender                 String
+  
+  // Contact Information
   email                  String
   telephone              String
+  
+  // Address Information
   streetName             String
   houseNumber            String
   postalCode             String
   city                   String
+  
+  // Employment Information
   occupation             String
+  
+  // Emergency Contact
   emergencyContactName   String
   emergencyContactNumber String
-  primaryPhysician       String?
+  
+  // Medical Information (Optional fields)
+  primaryPhysician       String?  // Optional (String? = nullable)
   insuranceProvider      String?
   insurancePolicyNumber  String?
   allergies              String?
   currentMedication      String?
   familyMedicalHistory   String?
   pastMedicalHistory     String?
+  
+  // Identification
   identificationType     String
   identificationNumber   String?
+  
+  // Additional Information
   remarks                String?
-  privacyConsent         Boolean
-  createdAt              DateTime @default(now())
-  status                 String   @default("Pending") // Add status field with default value
+  privacyConsent         Boolean  // User consent for data processing
+  
+  // Metadata
+  createdAt              DateTime @default(now())  // Auto-set on creation
+  status                 String   @default("Pending")  // Application status (Pending, Approved, Rejected, etc.)
 }
