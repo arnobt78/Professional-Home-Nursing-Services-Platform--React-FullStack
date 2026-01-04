@@ -10,8 +10,8 @@ import emailRoutes from "./server/emailRoutes.js";
 dotenv.config();
 
 console.log("API Base URL:", process.env.VITE_API_BASE_URL_RENDER);
-console.log("SMTP Host:", process.env.VITE_SMTP_HOST);
-console.log("Database URL:", process.env.VITE_DATABASE_URL);
+console.log("SMTP Host:", process.env.SMTP_HOST);
+console.log("Database URL:", process.env.DATABASE_URL);
 
 const app = express(); // Initialize app here
 const PORT = process.env.PORT || 5000;
@@ -37,7 +37,12 @@ app.use(
 app.use(applicationRoutes); // Use application routes
 app.use(emailRoutes); // Use email routes
 
-// Default route for Render
+// Health check endpoint
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "Healthy", service: "Sernitas Care Backend" });
+});
+
+// Default route
 app.get("/", (req, res) => {
   res.send("Sernitas Care Backend is Running!");
 });
