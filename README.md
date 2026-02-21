@@ -1,5 +1,12 @@
 # Sernitas Care | Professional Home Nursing Services Platform - React, Express.js, MongoDB FullStack Project
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![React](https://img.shields.io/badge/React-18.3.1-blue)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-7.2-646CFF)](https://vitejs.dev/)
+[![Express.js](https://img.shields.io/badge/Express.js-5.1.0-green)](https://expressjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-7.0.0-green)](https://www.mongodb.com/)
+[![Prisma](https://img.shields.io/badge/Prisma-6.6.0-blue)](https://www.prisma.io/)
+
 A full-stack web application for managing home nursing care services, built with React and Express.js. This platform provides comprehensive functionality for service management, job applications, contact forms, and an admin dashboard for managing applications.
 
 - **Live-Demo:** [https://develop-testing-1.netlify.app/](https://develop-testing-1.netlify.app/)
@@ -76,25 +83,21 @@ Sernitas Care is a modern, responsive web application designed for a professiona
 ### User-Facing Features
 
 1. **Service Information Pages**
-
    - Detailed service descriptions (Grundpflege, Behandlungspflege, etc.)
    - Service cards with modal views
    - Responsive service listings
 
 2. **Job Application System**
-
    - Comprehensive application form with validation
    - Real-time form validation using Zod schema
    - Automatic email notifications on submission
 
 3. **Contact & Consultation**
-
    - Contact form with email notifications
    - Home consultation request form
    - Callback request functionality
 
 4. **Content Management**
-
    - Blog system (Pflege-Blog)
    - Guide system (Pflege-Ratgeber)
    - FAQ section
@@ -102,7 +105,6 @@ Sernitas Care is a modern, responsive web application designed for a professiona
    - News/Updates section (Aktuelles)
 
 5. **About & Information**
-
    - Team information
    - Company mission (Leitbild)
    - Partnership network
@@ -115,12 +117,10 @@ Sernitas Care is a modern, responsive web application designed for a professiona
 ### Admin Features
 
 1. **Secure Authentication**
-
    - Admin login with bcrypt password hashing
    - Session management
 
 2. **Application Management**
-
    - View all applications
    - Update application status
    - Delete applications
@@ -1321,7 +1321,7 @@ import bcrypt from "bcrypt";
 
 const isPasswordValid = await bcrypt.compare(
   password,
-  process.env.ADMIN_PASSWORD_HASH
+  process.env.ADMIN_PASSWORD_HASH,
 );
 ```
 
@@ -1501,7 +1501,6 @@ const users = await prisma.user.findMany();
    ```
 
 2. **Configure Netlify:**
-
    - Connect your GitHub repository
    - Build command: `npm run build`
    - Publish directory: `dist`
