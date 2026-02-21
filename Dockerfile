@@ -96,9 +96,8 @@ COPY --chown=nodejs:nodejs prisma ./prisma
 # Switch to non-root user (security best practice)
 USER nodejs
 
-# Expose port 5000 (default, can be overridden by PORT environment variable)
-# This is informational - actual port mapping is done by Docker/Kubernetes
-EXPOSE 5000
+# App uses process.env.PORT || 5000 (local default 5000). In Coolify set PORT=3000 and Ports Mappings 5000:3000.
+EXPOSE 3000
 
 # Health Check Configuration
 # Docker/Kubernetes will periodically check if the container is healthy
