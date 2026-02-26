@@ -1,3 +1,4 @@
+/** TestimonialSection2: Second testimonial block (alternate image/content) with optional video modal. */
 import { useState } from "react";
 import Modal from "react-modal";
 import { motion } from "framer-motion";

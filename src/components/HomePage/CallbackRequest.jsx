@@ -1,3 +1,4 @@
+/** CallbackRequest: Homepage form for callback request (name, phone, consent). Submits via POST /api/send-home-consultation-email. */
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { Input } from "../ui/input";

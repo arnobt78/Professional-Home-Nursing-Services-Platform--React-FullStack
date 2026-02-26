@@ -1,3 +1,4 @@
+/** KarrierePage: Career page listing job posts (Vertrieb, Büromanagement, etc.) with contact info and link to Bewerben. */
 import karriereImage1 from "../../assets/karrierePage/karriere-1.png";
 import karriereImage2 from "../../assets/aboutPage/hero-3.png";
 

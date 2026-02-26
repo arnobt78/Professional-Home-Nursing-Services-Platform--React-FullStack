@@ -1,3 +1,4 @@
+/** General terms (AGB) legal page. Renders its own Navbar and Footer. */
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { motion } from "framer-motion";

@@ -1,3 +1,6 @@
+/**
+ * ApplicantDetails: Modal showing one application's full data. Allows changing status with confirmation; PATCH /api/applications/:id/status.
+ */
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query"; // Import useMutation

@@ -1,3 +1,4 @@
+/** BewerbenPage: Job application form (Karriere/bewerben). Submits via POST /api/send-job-application. Uses React Hook Form + Zod. */
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";

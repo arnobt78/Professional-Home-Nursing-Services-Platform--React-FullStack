@@ -1,3 +1,7 @@
+/**
+ * SideHoverIcons: Fixed vertical strip on the right with phone, email, contact link, social links.
+ * Expands on hover to show labels. Always visible for quick contact access.
+ */
 import { useState } from "react";
 import {
   FaPhone,

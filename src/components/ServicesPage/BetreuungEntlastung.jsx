@@ -1,3 +1,4 @@
+/** Services sub-page: Betreuungs- und Entlastungsleistungen. Includes ReviewSectionService and HomeConsultationSection. */
 import ReviewSectionService from "../ReviewSection/ReviewSectionService";
 import HomeConsultationSection from "../HomePage/HomeConsultationSection";
 

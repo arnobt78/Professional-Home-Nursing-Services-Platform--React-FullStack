@@ -1,3 +1,7 @@
+/**
+ * CardModal: Full-screen overlay showing one service card's details (title + HTML content).
+ * Renders cardData.details via dangerouslySetInnerHTML. Includes contact CTA and close button.
+ */
 import PropTypes from "prop-types";
 
 const CardModal = ({ isOpen, onClose, cardData }) => {

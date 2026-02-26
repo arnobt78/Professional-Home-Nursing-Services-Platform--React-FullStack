@@ -14,6 +14,12 @@ import application1 from "../../assets/aboutPage/hero-2.jpg";
 
 import CachedImage from "../CachedImage";
 
+/**
+ * ApplicationForm: Pflege (nursing care) application form.
+ * Uses React Hook Form + Zod for validation, React Query mutations for submit and notification email.
+ * Submits to POST /api/applications and POST /api/send-application-notification.
+ */
+
 // Zod validation schema (messages in German)
 const ApplicationFormSchema = z.object({
   firstName: z.string().min(2, "Vorname muss mindestens 2 Zeichen lang sein"),
@@ -77,13 +83,13 @@ const ApplicationForm = () => {
     resolver: zodResolver(ApplicationFormSchema),
   });
 
-  // Determine the API base URL dynamically
+  // API base URL: local in development, production (Netlify/VPS) in production
   const apiBaseUrl =
     import.meta.env.MODE === "development"
       ? import.meta.env.VITE_API_BASE_URL_LOCAL // Local backend
       : import.meta.env.VITE_API_BASE_URL_RENDER; // Render backend
 
-  // Mutation for submitting the application
+  // React Query mutation: POST application to backend and cache invalidation
   const submitApplicationMutation = useMutation({
     mutationFn: async (data) => {
       const response = await fetch(`${apiBaseUrl}/api/applications`, {
@@ -97,7 +103,7 @@ const ApplicationForm = () => {
     },
   });
 
-  // Mutation for sending the notification email
+  // React Query mutation: trigger backend to send notification email to HR/admin
   const sendNotificationEmailMutation = useMutation({
     mutationFn: async (data) => {
       const response = await fetch(

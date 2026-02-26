@@ -1,3 +1,4 @@
+/** Imprint (Impressum) legal page. Renders its own Navbar and Footer for full-page layout. */
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { motion } from "framer-motion";

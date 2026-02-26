@@ -1,3 +1,4 @@
+/** Reusable button with variants (default, primary, outline) and sizes (default, md, lg). Forwards ref. */
 import * as React from "react";
 import PropTypes from "prop-types";
 

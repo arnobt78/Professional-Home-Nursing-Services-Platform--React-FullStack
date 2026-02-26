@@ -2,16 +2,16 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-18.3.1-blue)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-7.2-646CFF)](https://vitejs.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5.4-646CFF)](https://vitejs.dev/)
 [![Express.js](https://img.shields.io/badge/Express.js-5.1.0-green)](https://expressjs.com/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-7.0.0-green)](https://www.mongodb.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-7.0-green)](https://www.mongodb.com/)
 [![Prisma](https://img.shields.io/badge/Prisma-6.6.0-blue)](https://www.prisma.io/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC)](https://tailwindcss.com/)
 
-A full-stack web application for managing home nursing care services, built with React and Express.js. This platform provides comprehensive functionality for service management, job applications, contact forms, and an admin dashboard for managing applications.
+A full-stack web application for professional home nursing care services. Built with **React** (Vite), **Express.js**, and **MongoDB** (Prisma ORM). The platform offers service information, job applications, contact and callback forms, blog/ratgeber content, and an admin dashboard to manage applications and email notifications.
 
-- **Live-Demo:** [https://develop-testing-1.netlify.app/](https://develop-testing-1.netlify.app/)
-
-- **Production-Live:** [https://sernitas-care.com/](https://sernitas-care.com/)
+- **Live Demo:** [https://develop-testing-1.netlify.app/](https://develop-testing-1.netlify.app/)
+- **Production:** [https://sernitas-care.com/](https://sernitas-care.com/)
 
 ![Screenshot 2025-06-07 at 02 30 46](https://github.com/user-attachments/assets/e0869bae-9f85-4088-8188-ec7ad956d66b)
 ![Screenshot 2025-07-30 at 12 34 22](https://github.com/user-attachments/assets/a8ad07be-5577-4584-88e8-f8ba24bc092a)
@@ -40,1577 +40,419 @@ A full-stack web application for managing home nursing care services, built with
 ![Screenshot 2025-07-30 at 12 46 17](https://github.com/user-attachments/assets/cd4c6142-c01e-49db-ba0a-418b08322767)
 ![Screenshot 2025-07-30 at 12 47 06](https://github.com/user-attachments/assets/0ee49cce-f0c3-418d-9345-abddcc1c23b5)
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [🎯 Project Overview](#-project-overview)
-- [✨ Features](#-features)
-- [🛠 Technology Stack](#-technology-stack)
-- [📁 Project Structure](#-project-structure)
-- [🚀 Getting Started](#-getting-started)
-- [🔐 Environment Variables](#-environment-variables)
-- [📦 Installation & Setup](#-installation--setup)
-- [🏃 Running the Project](#-running-the-project)
-- [🔌 API Endpoints](#-api-endpoints)
-- [🛣 Frontend Routes](#-frontend-routes)
-- [🧩 Key Components](#-key-components)
-- [⚙️ Core Functionalities](#️-core-functionalities)
-- [🔄 Reusing Components](#-reusing-components)
-- [🚀 Deployment](#-deployment)
-- [🏷 Keywords](#-keywords)
-- [📝 Conclusion](#-conclusion)
+- [Overview](#overview)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Features & Functionalities](#features--functionalities)
+- [Frontend Routes](#frontend-routes)
+- [API Endpoints](#api-endpoints)
+- [Environment Variables](#environment-variables)
+- [How to Run the Project](#how-to-run-the-project)
+- [Component Guide & Reuse](#component-guide--reuse)
+- [Keywords](#keywords)
+- [Conclusion](#conclusion)
+- [License](#license)
 
 ---
 
-## 🎯 Project Overview
+## Overview
 
-Sernitas Care is a modern, responsive web application designed for a professional home nursing care service provider. The platform enables clients to learn about services, submit job applications, request consultations, and contact the organization. Administrators can manage applications through a secure dashboard.
+**Sernitas Care** is a bilingual (German/English) marketing and operations site for a home nursing care provider. Visitors can browse services (Grundpflege, Behandlungspflege, etc.), read blog and guide content, submit job applications (Pflege and Karriere), request callbacks, and contact the team. Admins log in to view, update status, and delete applications; all form submissions trigger email notifications via SMTP (e.g. Gmail).
 
-### Key Highlights
+The app is split into:
 
-- **Modern Frontend**: React 18 with Vite for fast development and optimized builds
-- **RESTful Backend**: Express.js API with MongoDB database
-- **Type-Safe Database**: Prisma ORM for type-safe database queries
-- **Email Notifications**: Automated email system using Nodemailer
-- **Admin Dashboard**: Secure admin panel for managing applications
-- **Responsive Design**: Mobile-first design with Tailwind CSS
-- **Form Validation**: Client and server-side validation with Zod
-- **State Management**: React Query for efficient data fetching and caching
+- **Frontend:** React 18 + Vite, React Router, React Query (TanStack Query), React Hook Form + Zod, Tailwind CSS, Framer Motion. Optional PWA (service worker) for caching.
+- **Backend:** Node.js + Express, Prisma (MongoDB), Nodemailer for emails, bcrypt for admin password verification.
 
 ---
 
-## ✨ Features
+## Tech Stack
 
-### User-Facing Features
-
-1. **Service Information Pages**
-   - Detailed service descriptions (Grundpflege, Behandlungspflege, etc.)
-   - Service cards with modal views
-   - Responsive service listings
-
-2. **Job Application System**
-   - Comprehensive application form with validation
-   - Real-time form validation using Zod schema
-   - Automatic email notifications on submission
-
-3. **Contact & Consultation**
-   - Contact form with email notifications
-   - Home consultation request form
-   - Callback request functionality
-
-4. **Content Management**
-   - Blog system (Pflege-Blog)
-   - Guide system (Pflege-Ratgeber)
-   - FAQ section
-   - Downloads section
-   - News/Updates section (Aktuelles)
-
-5. **About & Information**
-   - Team information
-   - Company mission (Leitbild)
-   - Partnership network
-   - Legal pages (Imprint, Privacy Policy, General Terms)
-
-6. **Career Pages**
-   - Career information
-   - Job application submission (Bewerben)
-
-### Admin Features
-
-1. **Secure Authentication**
-   - Admin login with bcrypt password hashing
-   - Session management
-
-2. **Application Management**
-   - View all applications
-   - Update application status
-   - Delete applications
-   - View detailed applicant information
-   - Pagination support
-
-3. **Dashboard**
-   - Overview of all applications
-   - Status filtering
-   - Search functionality
+| Layer      | Technology                                                                                                        |
+| ---------- | ----------------------------------------------------------------------------------------------------------------- |
+| Frontend   | React 18.3, Vite 5.4, React Router 7, React Query 5, React Hook Form, Zod, Tailwind CSS 3.4, Framer Motion, Axios |
+| Backend    | Node.js, Express 5.1, Prisma 6.6, Nodemailer, bcrypt, dotenv, cors, body-parser                                   |
+| Database   | MongoDB (via Prisma)                                                                                              |
+| Deployment | Frontend: Netlify; Backend: Coolify/VPS (Docker); DB: MongoDB on same VPS                                         |
 
 ---
 
-## 🛠 Technology Stack
-
-### Frontend
-
-- **React 18.3.1** - UI library
-- **Vite 5.4.1** - Build tool and dev server
-- **React Router DOM 7.4.1** - Client-side routing
-- **TanStack React Query 5.72.2** - Server state management
-- **Tailwind CSS 3.4.12** - Utility-first CSS framework
-- **Framer Motion 11.18.2** - Animation library
-- **React Hook Form 7.55.0** - Form handling
-- **Zod 3.24.2** - Schema validation
-- **Axios 1.8.4** - HTTP client (optional, fetch API also used)
-- **React Icons 5.3.0** - Icon library
-
-### Backend
-
-- **Node.js 20+** - Runtime environment
-- **Express.js 5.1.0** - Web framework
-- **MongoDB** - NoSQL database
-- **Prisma 6.6.0** - ORM for database access
-- **Nodemailer 6.10.0** - Email sending
-- **bcrypt 5.1.1** - Password hashing
-- **CORS 2.8.5** - Cross-origin resource sharing
-- **dotenv 16.4.7** - Environment variable management
-
-### Development Tools
-
-- **ESLint 9.9.0** - Code linting
-- **PostCSS** - CSS processing
-- **Autoprefixer** - CSS vendor prefixing
-
-### Deployment
-
-- **Docker** - Containerization
-- **Netlify** - Frontend hosting
-- **Coolify/VPS** - Backend hosting (Hetzner VPS)
-- **MongoDB** - Database hosting (self-hosted)
-
----
-
-## 📁 Project Structure
+## Project Structure
 
 ```bash
 sernitas-care/
-├── src/                          # Frontend source code
-│   ├── components/               # React components
-│   │   ├── AboutUs/             # About us page components
-│   │   ├── Accordion/           # Accordion component
-│   │   ├── Admin/               # Admin dashboard components
-│   │   ├── ApplicationForm/     # Job application form
-│   │   ├── Cards/               # Service cards
-│   │   ├── Contact/             # Contact form
-│   │   ├── Footer/              # Footer components
-│   │   ├── HomePage/            # Homepage sections
-│   │   ├── Karriere/            # Career pages
-│   │   ├── Navbar/              # Navigation bar
-│   │   ├── ServicesPage/        # Service pages
-│   │   ├── TestimonialSection/  # Testimonials
-│   │   ├── ui/                  # Reusable UI components
-│   │   └── WissenswertesPage/   # Knowledge/Info pages
-│   ├── assets/                  # Static assets (images, icons)
-│   ├── App.jsx                  # Main app component with routes
-│   ├── main.jsx                 # Application entry point
-│   ├── reactQueryClient.js      # React Query configuration
-│   ├── index.css                # Global styles
-│   └── utility/                 # Utility functions
-├── server/                      # Backend source code
-│   ├── applicationRoutes.js     # Application CRUD endpoints
-│   └── emailRoutes.js           # Email sending endpoints
-├── prisma/                      # Database schema
-│   └── schema.prisma            # Prisma schema definition
-├── public/                      # Public static files
-├── dist/                        # Build output (generated)
-├── node_modules/                # Dependencies (generated)
-├── .env                         # Environment variables (create this)
-├── .env.example                 # Example env file (if exists)
-├── Dockerfile                   # Docker configuration
-├── netlify.toml                 # Netlify deployment config
-├── package.json                 # Dependencies and scripts
-├── vite.config.js               # Vite configuration
-├── tailwind.config.js           # Tailwind CSS configuration
-└── README.md                    # This file
+├── index.html                 # HTML entry; SEO meta, favicon
+├── package.json               # Dependencies and scripts
+├── vite.config.js             # Vite config (React plugin, build output)
+├── tailwind.config.js         # Tailwind theme (primary/secondary, fonts)
+├── postcss.config.js          # PostCSS for Tailwind
+├── eslint.config.js           # ESLint config
+├── Dockerfile                 # Backend Docker image (multi-stage)
+├── netlify.toml               # Netlify redirects/build (if used)
+├── hashPassword.js            # Utility to generate ADMIN_PASSWORD_HASH
+│
+├── prisma/
+│   └── schema.prisma          # MongoDB schema (Application model)
+│
+├── server.js                  # Express app entry; CORS, routes, /health
+├── server/
+│   ├── applicationRoutes.js   # /api/admin/login, /api/applications CRUD
+│   └── emailRoutes.js         # /api/send-email, send-application-notification, etc.
+│
+├── public/
+│   └── service-worker.js      # PWA: pre-cache static assets
+│
+└── src/
+    ├── main.jsx               # React root; Router, QueryClient, ScrollToTop, SW
+    ├── App.jsx                # Routes, ErrorBoundary, Navbar, Footer (conditional)
+    ├── index.css              # Global + Tailwind
+    ├── reactQueryClient.js    # React Query default options (staleTime, retry, etc.)
+    ├── utility/
+    │   └── animation.js       # Framer Motion variants (slideUp, slideBottom)
+    │
+    ├── components/
+    │   ├── Navbar.jsx         # Desktop/mobile nav, dropdowns, search
+    │   ├── Footer.jsx         # Logo, links, social; uses PartnersSection, AffiliatesSection
+    │   ├── ScrollToTop.jsx    # Scroll to top on route change
+    │   ├── SideHoverIcons.jsx # Fixed right strip: phone, email, contact, social
+    │   ├── Loading.jsx        # Full-screen spinner
+    │   ├── PageNotFound.jsx   # 404 page
+    │   ├── CachedImage.jsx    # img + Cache API for PWA
+    │   ├── usePersistedQuery.js # React Query + localStorage (e.g. admin applications)
+    │   │
+    │   ├── ui/                # Reusable form primitives
+    │   │   ├── button.jsx     # Variants: default, primary, outline; sizes
+    │   │   ├── input.jsx      # Styled input (ref forwarded)
+    │   │   └── textarea.jsx   # Styled textarea (ref forwarded)
+    │   │
+    │   ├── HomePage/          # Hero, CallbackRequest, Welcome, Testimonial, Cards, Map, Review, Steps, HomeConsultation, Accordion
+    │   ├── Cards/             # Cards.jsx (service grid), CardModal.jsx, cardData.js
+    │   ├── Accordion/         # AccordionSection.jsx, SingleAccordion.jsx, data.js (FAQ)
+    │   ├── TestimonialSection/
+    │   ├── ReviewSection/
+    │   ├── Contact/           # Contact.jsx (form → POST /api/send-email)
+    │   ├── ApplicationForm/  # Pflege application form → POST /api/applications + notification
+    │   ├── Admin/             # Admin.jsx, AdminLogin.jsx, AdminDashboard.jsx, ApplicantDetails.jsx, PaginationSelection.jsx
+    │   ├── ServicesPage/      # Tabbed layout + Grundpflege, Behandlungspflege, Verhinderungspflege, BetreuungEntlastung, Rufbereitschaft
+    │   ├── AboutUs/           # Tabbed layout + WirSindSernitas, Team, Leitbild, Kooperationsnetzwerk, MitgliedschaftBAP
+    │   ├── WissenswertesPage/ # Tabbed: FAQ, Aktuelles, PflegeBlog, PflegeRatgeber, Downloads; BlogPage, RatgeberPage; blogData.js, ratgeberData.js
+    │   ├── Karriere/          # KarrierePage.jsx, BewerbenPage.jsx (job form → POST /api/send-job-application)
+    │   ├── Footer/            # PartnersSection.jsx, AffiliatesSection.jsx
+    │   ├── Imprint/
+    │   ├── PrivacyPolicy/
+    │   ├── GeneralTerms/
+    │   └── Magazine/
+    │
+    └── assets/                # Images, icons (SVG), etc.
 ```
 
 ---
 
-## 🚀 Getting Started
+## Features & Functionalities
+
+- **Homepage:** Hero (video + CTAs), callback request form, welcome block, testimonials, service cards (modal with HTML content), map section, review section, steps, home consultation form, FAQ accordion.
+- **Services:** Tabbed pages for Grundpflege, Behandlungspflege, Verhinderungspflege, Betreuung & Entlastung, 24h Rufbereitschaft.
+- **About Us:** Wir sind Sernitas, Team, Leitbild, Kooperationsnetzwerk, Mitgliedschaft BAP.
+- **Wissenswertes:** FAQ (accordion), Aktuelles (news), Pflege-Blog (list + detail with comment form), Pflege-Ratgeber (list + detail), Downloads (links).
+- **Karriere:** Job listings and Bewerben (job application form → email).
+- **Application Form (Pflege):** Long form with Zod validation; submits to backend (DB + notification email).
+- **Contact:** Form → POST /api/send-email.
+- **Admin:** Login (email + password, bcrypt); dashboard with application list, pagination, status update, delete, detail modal.
+- **Legal:** Imprint, Privacy Policy, General Terms (each with own Navbar/Footer for full-page layout).
+- **PWA:** Service worker caches static assets; CachedImage adds images to Cache API.
+- **UX:** ScrollToTop on route change, ErrorBoundary, responsive Navbar (dropdowns + mobile menu + search).
+
+---
+
+## Frontend Routes
+
+| Route                  | Component         | Description                                                                                        |
+| ---------------------- | ----------------- | -------------------------------------------------------------------------------------------------- |
+| `/`                    | Home              | Hero, callback, welcome, testimonials, cards, map, review, steps, home consultation, accordion     |
+| `/services/*`          | ServicesPage      | Tabs: Grundpflege, Behandlungspflege, Verhinderungspflege, Betreuung & Entlastung, Rufbereitschaft |
+| `/about-us/*`          | AboutUsPage       | Tabs: Wir sind Sernitas, Team, Leitbild, Kooperationsnetzwerk, Mitgliedschaft BAP                  |
+| `/wissenswertes/*`     | WissenswertesPage | Tabs: FAQ, Aktuelles, Pflege-Blog, Pflege-Ratgeber, Downloads                                      |
+| `/pflege-ratgeber`     | PflegeRatgeber    | List of guide entries                                                                              |
+| `/pflege-ratgeber/:id` | RatgeberPage      | Single guide article                                                                               |
+| `/pflege-blog`         | PflegeBlog        | List of blog posts                                                                                 |
+| `/pflege-blog/:id`     | BlogPage          | Single blog post + comment form                                                                    |
+| `/imprint`             | Imprint           | Legal imprint (own Navbar/Footer)                                                                  |
+| `/privacy-policy`      | PrivacyPolicy     | Privacy policy                                                                                     |
+| `/general-terms`       | GeneralTerms      | General terms                                                                                      |
+| `/contact`             | Contact           | Contact form                                                                                       |
+| `/application-form`    | ApplicationForm   | Pflege application form                                                                            |
+| `/karriere`            | KarrierePage      | Career / job listings                                                                              |
+| `/karriere/bewerben`   | BewerbenPage      | Job application form                                                                               |
+| `/admin`               | Admin             | Login gate → AdminDashboard                                                                        |
+| `*`                    | PageNotFound      | 404                                                                                                |
+
+---
+
+## API Endpoints
+
+**Base URL:** In development use `VITE_API_BASE_URL_LOCAL` (e.g. `http://localhost:5000`); in production use `VITE_API_BASE_URL_RENDER` (your deployed backend URL).
+
+### Application & Admin
+
+| Method | Endpoint                       | Description           | Body                                   |
+| ------ | ------------------------------ | --------------------- | -------------------------------------- |
+| POST   | `/api/admin/login`             | Admin login           | `{ email, password }`                  |
+| GET    | `/api/applications`            | List all applications | —                                      |
+| POST   | `/api/applications`            | Create application    | Application fields (see Prisma schema) |
+| PATCH  | `/api/applications/:id/status` | Update status         | `{ status }`                           |
+| DELETE | `/api/applications/:id`        | Delete application    | —                                      |
+
+### Email (Nodemailer / SMTP)
+
+| Method | Endpoint                             | Description                  | Body (examples)                                                                                       |
+| ------ | ------------------------------------ | ---------------------------- | ----------------------------------------------------------------------------------------------------- |
+| POST   | `/api/send-email`                    | Contact form                 | `{ fullname, email, phone, message }`                                                                 |
+| POST   | `/api/send-application-notification` | Pflege application submitted | `{ firstName, lastName, email, phone, age, gender }`                                                  |
+| POST   | `/api/send-home-consultation-email`  | Callback / home consultation | `{ fullname, phone, consent }`                                                                        |
+| POST   | `/api/send-job-application`          | Karriere job application     | `{ firstname, lastname, gender, degree, company, country, email, phone, linkedin, subject, message }` |
+| POST   | `/api/send-comment`                  | Blog comment                 | `{ fullname, email, comment }`                                                                        |
+
+### Utility
+
+| Method | Endpoint  | Description                                     |
+| ------ | --------- | ----------------------------------------------- |
+| GET    | `/health` | Health check (e.g. for Coolify/Docker)          |
+| GET    | `/`       | Plain text: "Sernitas Care Backend is Running!" |
+
+---
+
+## Environment Variables
+
+Create a `.env` file in the **project root**. Never commit real secrets to Git.
+
+### Backend (server + Prisma)
+
+Used by `server.js`, `server/applicationRoutes.js`, `server/emailRoutes.js`, and `prisma/schema.prisma`.
+
+| Variable              | Required | Description                                             | Example                                                       |
+| --------------------- | -------- | ------------------------------------------------------- | ------------------------------------------------------------- |
+| `DATABASE_URL`        | Yes      | MongoDB connection string                               | `mongodb://user:password@host:27017/dbname?authSource=dbname` |
+| `PORT`                | No       | Server port (default `5000`)                            | `5000`                                                        |
+| `ADMIN_EMAIL`         | Yes      | Admin login email                                       | `admin@example.com`                                           |
+| `ADMIN_PASSWORD`      | No\*     | Plain password for hashing (only for `hashPassword.js`) | —                                                             |
+| `ADMIN_PASSWORD_HASH` | Yes      | bcrypt hash of admin password                           | Run `node hashPassword.js` and copy output                    |
+| `SMTP_HOST`           | Yes      | SMTP server                                             | `smtp.gmail.com`                                              |
+| `SMTP_PORT`           | Yes      | SMTP port (587 TLS, 465 SSL)                            | `587`                                                         |
+| `SMTP_SECURE`         | Yes      | Use SSL/TLS                                             | `false` for 587, `true` for 465                               |
+| `EMAIL_USER`          | Yes      | SMTP login (sender)                                     | `your@gmail.com`                                              |
+| `EMAIL_PASS`          | Yes      | SMTP password (e.g. Gmail App Password)                 | App password                                                  |
+| `HR_USER`             | Yes      | Extra recipient for notifications                       | `hr@example.com`                                              |
+
+\* For production, set `ADMIN_PASSWORD` only when generating a hash locally; do not put the plain password in production `.env`.
+
+**How to get `ADMIN_PASSWORD_HASH`:**
+
+1. In `.env` set `ADMIN_PASSWORD=yourSecurePassword`.
+2. Run: `node hashPassword.js`
+3. Copy the printed hash into `ADMIN_PASSWORD_HASH` in `.env`.
+4. Remove or leave `ADMIN_PASSWORD` out of production.
+
+### Frontend (Vite)
+
+Only variables prefixed with `VITE_` are exposed to the browser. Used by components that call the API.
+
+| Variable                   | Required   | Description                               | Example                            |
+| -------------------------- | ---------- | ----------------------------------------- | ---------------------------------- |
+| `VITE_API_BASE_URL_LOCAL`  | Yes (dev)  | Backend URL in development                | `http://localhost:5000`            |
+| `VITE_API_BASE_URL_RENDER` | Yes (prod) | Backend URL in production (Netlify build) | `https://your-backend.example.com` |
+
+**Example `.env` (minimal):**
+
+```env
+# Backend
+DATABASE_URL=mongodb://user:pass@localhost:27017/sernitas_care_db?authSource=sernitas_care_db
+PORT=5000
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD_HASH=$2b$10$...yourBcryptHash...
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+EMAIL_USER=your@gmail.com
+EMAIL_PASS=yourAppPassword
+HR_USER=hr@example.com
+
+# Frontend (Vite)
+VITE_API_BASE_URL_LOCAL=http://localhost:5000
+VITE_API_BASE_URL_RENDER=https://your-backend.example.com
+```
+
+**Deployment (Coolify/Docker):** Set the same backend variables in the platform’s environment. For values that contain `$` (e.g. bcrypt hash), enable “Is Literal” or equivalent so the string is not interpreted as variable substitution.
+
+---
+
+## How to Run the Project
 
 ### Prerequisites
 
-Before you begin, ensure you have the following installed:
+- Node.js (e.g. 18 or 20 LTS)
+- MongoDB (local or remote; connection string in `DATABASE_URL`)
+- npm (or yarn/pnpm)
 
-- **Node.js** (v20 or higher) - [Download](https://nodejs.org/)
-- **npm** (comes with Node.js) or **yarn**
-- **MongoDB** (local or remote instance)
-- **Git** - [Download](https://git-scm.com/)
-
-### Recommended Tools
-
-- **VS Code** - Code editor
-- **MongoDB Compass** - MongoDB GUI (optional)
-- **Postman** or **Insomnia** - API testing (optional)
-
----
-
-## 🔐 Environment Variables
-
-The project uses environment variables to manage configuration. Create a `.env` file in the root directory.
-
-### Frontend Environment Variables (VITE\_ prefix)
-
-These variables are accessible in the browser and must be prefixed with `VITE_`:
-
-```env
-# Frontend API URLs
-VITE_API_BASE_URL_LOCAL=http://localhost:5000
-VITE_API_BASE_URL_RENDER=https://your-backend-url.com
-```
-
-**Important**: Only variables prefixed with `VITE_` are exposed to the frontend. Never put sensitive data (passwords, secrets) in `VITE_` variables.
-
-### Backend Environment Variables (No VITE\_ prefix)
-
-These are server-side only and should **never** be prefixed with `VITE_`:
-
-```env
-# Database Configuration
-DATABASE_URL="mongodb://username:password@host:port/database?authSource=database&replicaSet=rs0"
-
-# Email Configuration (SMTP)
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-app-password
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_SECURE=false
-
-# HR Email (receives notifications)
-HR_USER=hr-email@gmail.com
-
-# Admin Configuration
-ADMIN_EMAIL=admin@example.com
-ADMIN_PASSWORD=your-secure-password
-ADMIN_PASSWORD_HASH=$2b$10$...your-bcrypt-hash...
-
-# JWT Secret (for future authentication)
-JWT_SECRET=your-very-long-random-secret-string
-
-# Server Port (optional, defaults to 5000)
-PORT=5000
-```
-
-### Generating Password Hash
-
-To generate a bcrypt hash for `ADMIN_PASSWORD_HASH`:
-
-1. Set `ADMIN_PASSWORD` in your `.env` file
-2. Run the password hash generator:
+### 1. Clone and install
 
 ```bash
-node hashPassword.js
-```
-
-1. Copy the generated hash and update `ADMIN_PASSWORD_HASH` in `.env`
-
-### Gmail App Password Setup
-
-If using Gmail SMTP:
-
-1. Enable 2-Factor Authentication on your Google account
-2. Go to [Google App Passwords](https://myaccount.google.com/apppasswords)
-3. Generate an app password for "Mail"
-4. Use this app password as `EMAIL_PASS` (not your regular Gmail password)
-
-### Complete .env Example
-
-```env
-# ============================================
-# FRONTEND ENVIRONMENT VARIABLES (VITE_ prefix)
-# ============================================
-VITE_API_BASE_URL_LOCAL=http://localhost:5000
-VITE_API_BASE_URL_RENDER=https://your-backend-url.com
-
-# ============================================
-# BACKEND ENVIRONMENT VARIABLES (No VITE_ prefix)
-# ============================================
-
-# Database Connection
-DATABASE_URL="mongodb://user:password@localhost:27017/sernitas_care_db?authSource=sernitas_care_db&replicaSet=rs0"
-
-# Email Configuration
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-app-password
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_SECURE=false
-
-HR_USER=hr-email@gmail.com
-
-# Admin Configuration
-ADMIN_EMAIL=admin@example.com
-ADMIN_PASSWORD=your-secure-password
-ADMIN_PASSWORD_HASH=$2b$10$generated-hash-here
-
-JWT_SECRET=your-very-long-random-secret-string
-
-PORT=5000
-```
-
----
-
-## 📦 Installation & Setup
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/your-username/sernitas-care.git
+git clone <repository-url>
 cd sernitas-care
-```
-
-### 2. Install Dependencies
-
-```bash
-# Install all dependencies (frontend + backend)
 npm install
 ```
 
-This will install both frontend and backend dependencies, and automatically run `prisma generate` due to the `postinstall` script.
+### 2. Environment
 
-### 3. Set Up Environment Variables
+- Copy the example above into a `.env` file at the project root.
+- Fill in `DATABASE_URL`, admin credentials, and SMTP settings.
+- Generate `ADMIN_PASSWORD_HASH` with `node hashPassword.js` and set it in `.env`.
 
-Create a `.env` file in the root directory:
+### 3. Database
+
+- Ensure MongoDB is running and the database/user in `DATABASE_URL` exist.
+- Prisma Client is generated automatically via `postinstall` and when running backend commands.
+
+### 4. Run backend
 
 ```bash
-# Copy the example (if available) or create manually
-cp .env.example .env  # If .env.example exists
-# Or create .env manually with the variables from the Environment Variables section
+npm run start
 ```
 
-### 4. Set Up MongoDB
+Runs `prisma generate` and `node server.js`. API: `http://localhost:5000` (or the port in `PORT`).
 
-#### Option A: Local MongoDB
-
-1. Install MongoDB locally
-2. Start MongoDB service
-3. Create database and user:
+### 5. Run frontend (separate terminal)
 
 ```bash
-mongosh
-use sernitas_care_db
-db.createUser({
-  user: "sernitas_care_user",
-  pwd: "your-password",
-  roles: [{ role: "readWrite", db: "sernitas_care_db" }]
-})
-```
-
-1. Update `DATABASE_URL` in `.env`
-
-#### Option B: MongoDB Atlas (Cloud)
-
-1. Create account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-2. Create a cluster
-3. Get connection string
-4. Update `DATABASE_URL` in `.env`
-
-### 5. Generate Prisma Client
-
-```bash
-npm run prisma:generate
-```
-
-This generates the Prisma Client based on `prisma/schema.prisma`.
-
-### 6. Push Prisma Schema to Database (Optional)
-
-For MongoDB, you typically use `prisma db push` instead of migrations:
-
-```bash
-npx prisma db push
-```
-
-This syncs your schema with the database without creating migration files.
-
----
-
-## 🏃 Running the Project
-
-### Development Mode
-
-#### Start Backend Server
-
-```bash
-# Start the Express.js backend server
-npm start
-
-# Or run directly
-node server.js
-```
-
-The backend will run on `http://localhost:5000` (or the PORT specified in `.env`).
-
-#### Start Frontend Development Server
-
-Open a new terminal window:
-
-```bash
-# Start Vite dev server
 npm run dev
 ```
 
-The frontend will run on `http://localhost:5173` (Vite default port).
+Vite dev server: `http://localhost:5173`. It uses `VITE_API_BASE_URL_LOCAL` to talk to the backend.
 
-### Production Build
+### 6. Production build
 
-#### Build Frontend
-
-```bash
-npm run build
-```
-
-This creates an optimized production build in the `dist/` directory.
-
-#### Preview Production Build
-
-```bash
-npm run preview
-```
-
-### Run Backend in Production
-
-```bash
-npm start
-```
-
-Make sure `NODE_ENV=production` is set in your production environment.
+- **Frontend:** `npm run build` → `dist/`. Deploy `dist` to Netlify (or any static host); set `VITE_API_BASE_URL_RENDER` in the build environment.
+- **Backend:** Build the Docker image from the project root (Dockerfile), or run `node server.js` with production env vars. Ensure CORS allows your frontend origin.
 
 ---
 
-## 🔌 API Endpoints
+## Component Guide & Reuse
 
-### Application Endpoints
+### UI primitives (`src/components/ui/`)
 
-#### POST `/api/admin/login`
-
-Admin authentication endpoint.
-
-**Request Body:**
-
-```json
-{
-  "email": "admin@example.com",
-  "password": "your-password"
-}
-```
-
-**Response (200 OK):**
-
-```json
-{
-  "message": "Login successful"
-}
-```
-
-**Response (401 Unauthorized):**
-
-```json
-{
-  "error": "Invalid email or password"
-}
-```
-
----
-
-#### GET `/api/applications`
-
-Fetch all job applications.
-
-**Response (200 OK):**
-
-```json
-[
-  {
-    "id": "507f1f77bcf86cd799439011",
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "john@example.com",
-    "status": "Pending",
-    "createdAt": "2024-01-15T10:30:00.000Z",
-    ...
-  }
-]
-```
-
----
-
-#### POST `/api/applications`
-
-Create a new job application.
-
-**Request Body:**
-
-```json
-{
-  "firstName": "John",
-  "lastName": "Doe",
-  "birthDate": "1990-01-01",
-  "gender": "Male",
-  "email": "john@example.com",
-  "telephone": "1234567890",
-  "streetName": "Main Street",
-  "houseNumber": "123",
-  "postalCode": "12345",
-  "city": "Berlin",
-  "occupation": "Nurse",
-  "emergencyContactName": "Jane Doe",
-  "emergencyContactNumber": "0987654321",
-  "identificationType": "Passport",
-  "privacyConsent": true
-}
-```
-
-**Response (201 Created):**
-
-```json
-{
-  "id": "507f1f77bcf86cd799439011",
-  "firstName": "John",
-  "lastName": "Doe",
-  "status": "Pending",
-  "createdAt": "2024-01-15T10:30:00.000Z",
-  ...
-}
-```
-
----
-
-#### PATCH `/api/applications/:id/status`
-
-Update application status.
-
-**URL Parameters:**
-
-- `id` - Application ID (MongoDB ObjectId)
-
-**Request Body:**
-
-```json
-{
-  "status": "Approved"
-}
-```
-
-**Response (200 OK):**
-
-```json
-{
-  "id": "507f1f77bcf86cd799439011",
-  "status": "Approved",
-  ...
-}
-```
-
----
-
-#### DELETE `/api/applications/:id`
-
-Delete an application.
-
-**URL Parameters:**
-
-- `id` - Application ID (MongoDB ObjectId)
-
-**Response (200 OK):**
-
-```json
-{
-  "message": "Application deleted successfully"
-}
-```
-
----
-
-### Email Endpoints
-
-#### POST `/api/send-email`
-
-Send contact form email.
-
-**Request Body:**
-
-```json
-{
-  "fullname": "John Doe",
-  "email": "john@example.com",
-  "phone": "1234567890",
-  "message": "Hello, I'm interested in your services."
-}
-```
-
-**Response (200 OK):**
-
-```json
-{
-  "message": "Email sent successfully to both recipients"
-}
-```
-
----
-
-#### POST `/api/send-application-notification`
-
-Send application submission notification email.
-
-**Request Body:**
-
-```json
-{
-  "firstName": "John",
-  "lastName": "Doe",
-  "email": "john@example.com",
-  "phone": "1234567890",
-  "age": 34,
-  "gender": "Male"
-}
-```
-
----
-
-#### POST `/api/send-home-consultation-email`
-
-Send home consultation request email.
-
-**Request Body:**
-
-```json
-{
-  "fullname": "John Doe",
-  "phone": "1234567890",
-  "consent": true
-}
-```
-
----
-
-#### POST `/api/send-job-application`
-
-Send job application email.
-
-**Request Body:**
-
-```json
-{
-  "firstname": "John",
-  "lastname": "Doe",
-  "gender": "Male",
-  "degree": "Bachelor",
-  "company": "Company Name",
-  "country": "Germany",
-  "email": "john@example.com",
-  "phone": "1234567890",
-  "linkedin": "linkedin.com/in/johndoe",
-  "subject": "Application Subject",
-  "message": "Application message"
-}
-```
-
----
-
-#### POST `/api/send-comment`
-
-Send blog comment email.
-
-**Request Body:**
-
-```json
-{
-  "fullname": "John Doe",
-  "email": "john@example.com",
-  "comment": "Great article!"
-}
-```
-
----
-
-### Health Check Endpoint
-
-#### GET `/health`
-
-Health check endpoint for monitoring.
-
-**Response (200 OK):**
-
-```json
-{
-  "status": "Healthy",
-  "service": "Sernitas Care Backend"
-}
-```
-
----
-
-#### GET `/`
-
-Root endpoint.
-
-**Response (200 OK):**
-
-```text
-Sernitas Care Backend is Running!
-```
-
----
-
-## 🛣 Frontend Routes
-
-The application uses React Router for client-side routing. All routes are defined in `src/App.jsx`.
-
-### Public Routes
-
-- `/` - Homepage
-- `/services/*` - Services pages (nested routes)
-  - `/services/grundpflege` - Basic care services
-  - `/services/behandlungspflege` - Treatment care services
-  - `/services/verhinderungspflege` - Respite care services
-  - `/services/betreuung-entlastung` - Support and relief services
-  - `/services/rufbereitschaft` - 24-hour emergency service
-- `/about-us/*` - About us pages (nested routes)
-  - `/about-us/wir-sind-sernitas` - Who we are
-  - `/about-us/team` - Team information
-  - `/about-us/leitbild` - Mission statement
-  - `/about-us/kooperationsnetzwerk` - Partnership network
-  - `/about-us/mitgliedschaft-bap` - BAP membership
-- `/wissenswertes/*` - Information pages (nested routes)
-  - `/wissenswertes/faq` - Frequently asked questions
-  - `/wissenswertes/aktuelles` - News and updates
-  - `/wissenswertes/pflege-blog` - Care blog
-  - `/wissenswertes/pflege-ratgeber` - Care guide
-  - `/wissenswertes/downloads` - Downloads
-- `/pflege-ratgeber` - Care guide listing
-- `/pflege-ratgeber/:id` - Individual care guide article
-- `/pflege-blog` - Blog listing
-- `/pflege-blog/:id` - Individual blog post
-- `/contact` - Contact form
-- `/application-form` - Job application form
-- `/karriere` - Career information
-- `/karriere/bewerben` - Job application page
-- `/imprint` - Legal imprint
-- `/privacy-policy` - Privacy policy
-- `/general-terms` - General terms and conditions
-
-### Admin Routes
-
-- `/admin` - Admin dashboard (requires authentication)
-
-### Error Routes
-
-- `*` - 404 Page Not Found (catch-all route)
-
----
-
-## 🧩 Key Components
-
-### Layout Components
-
-#### `Navbar`
-
-Main navigation component with dropdown menus.
-
-**Location:** `src/components/Navbar/Navbar.jsx`
-
-**Features:**
-
-- Responsive design (mobile hamburger menu)
-- Dropdown navigation for services, about us, and information sections
-- Active route highlighting
-- Smooth scroll behavior
-
-**Usage:**
-
-```jsx
-import Navbar from "./components/Navbar/Navbar";
-
-function App() {
-  return (
-    <>
-      <Navbar />
-      {/* Other content */}
-    </>
-  );
-}
-```
-
----
-
-#### `Footer`
-
-Footer component with links and partner information.
-
-**Location:** `src/components/Footer/Footer.jsx`
-
-**Features:**
-
-- Partner logos section
-- Affiliate links
-- Legal page links
-- Social media links
-
-**Usage:**
-
-```jsx
-import Footer from "./components/Footer/Footer";
-
-function App() {
-  return (
-    <>
-      {/* Main content */}
-      <Footer />
-    </>
-  );
-}
-```
-
----
-
-### Form Components
-
-#### `ApplicationForm`
-
-Comprehensive job application form with validation.
-
-**Location:** `src/components/ApplicationForm/ApplicationForm.jsx`
-
-**Features:**
-
-- Zod schema validation
-- React Hook Form integration
-- Multi-step form fields
-- Success/error messaging
-- Automatic email notifications
-- Database persistence
-
-**Usage:**
-
-```jsx
-import ApplicationForm from "./components/ApplicationForm/ApplicationForm";
-
-function ApplicationPage() {
-  return <ApplicationForm />;
-}
-```
-
-**Validation Schema Example:**
-
-```javascript
-const ApplicationFormSchema = z.object({
-  firstName: z.string().min(2, "Vorname muss mindestens 2 Zeichen lang sein"),
-  lastName: z.string().min(2, "Nachname muss mindestens 2 Zeichen lang sein"),
-  email: z.string().email("Ungültige E-Mail-Adresse"),
-  telephone: z
-    .string()
-    .regex(/^\d+$/, "Telefonnummer darf nur Ziffern enthalten"),
-  privacyConsent: z.boolean().refine((val) => val, {
-    message: "Sie müssen der Datenschutzerklärung zustimmen",
-  }),
-});
-```
-
----
-
-#### `Contact`
-
-Contact form component.
-
-**Location:** `src/components/Contact/Contact.jsx`
-
-**Features:**
-
-- Form validation
-- Email sending via API
-- Success/error feedback
-
----
-
-### UI Components
-
-#### `Button`
-
-Reusable button component.
-
-**Location:** `src/components/ui/button.jsx`
-
-**Usage:**
+**Button** – Variants and sizes for consistent CTAs.
 
 ```jsx
 import { Button } from "./components/ui/button";
 
-<Button type="submit" className="custom-class" disabled={isLoading}>
-  Submit
-</Button>;
+<Button variant="primary" size="lg">Submit</Button>
+<Button variant="outline" onClick={handleCancel}>Cancel</Button>
 ```
 
----
-
-#### `Input`
-
-Reusable input component.
-
-**Location:** `src/components/ui/input.jsx`
-
-**Usage:**
+**Input / Textarea** – Work with React Hook Form via `ref`.
 
 ```jsx
+import { useForm } from "react-hook-form";
 import { Input } from "./components/ui/input";
 
-<Input
-  type="text"
-  placeholder="Enter text"
-  {...register("fieldName")}
-  className="custom-class"
-/>;
+const { register } = useForm();
+<Input {...register("email")} type="email" placeholder="Email" />;
 ```
 
----
+### Forms with validation (React Hook Form + Zod)
 
-#### `Textarea`
+**Pattern used in Contact, ApplicationForm, BewerbenPage, CallbackRequest, HomeConsultationSection:**
 
-Reusable textarea component.
+1. Define a Zod schema.
+2. `useForm({ resolver: zodResolver(schema) })`.
+3. `register` inputs and show `formState.errors`.
+4. On submit, call backend with `fetch` or React Query `useMutation`.
 
-**Location:** `src/components/ui/textarea.jsx`
+Reuse: Copy the pattern from any of these components and replace schema + API URL + submit handler.
 
-**Usage:**
+### Data fetching (React Query)
 
-```jsx
-import { Textarea } from "./components/ui/textarea";
-
-<Textarea placeholder="Enter message" {...register("message")} rows={5} />;
-```
-
----
-
-### Admin Components
-
-#### `Admin`
-
-Admin dashboard wrapper component.
-
-**Location:** `src/components/Admin/Admin.jsx`
-
-**Features:**
-
-- Login page
-- Protected routes
-- Dashboard layout
-
----
-
-#### `AdminDashboard`
-
-Application management dashboard.
-
-**Location:** `src/components/Admin/AdminDashboard.jsx`
-
-**Features:**
-
-- Application listing
-- Status filtering
-- Pagination
-- Delete functionality
-- Status updates
-
----
-
-#### `AdminLogin`
-
-Admin authentication component.
-
-**Location:** `src/components/Admin/AdminLogin.jsx`
-
-**Features:**
-
-- Email/password authentication
-- Error handling
-- Session management
-
----
-
-### Utility Components
-
-#### `CachedImage`
-
-Image component with caching support.
-
-**Location:** `src/components/CachedImage.jsx`
-
-**Usage:**
-
-```jsx
-import CachedImage from "./components/CachedImage";
-
-<CachedImage src="/path/to/image.jpg" alt="Description" />;
-```
-
----
-
-#### `ScrollToTop`
-
-Component that scrolls to top on route changes.
-
-**Location:** `src/components/ScrollToTop.jsx`
-
-**Usage:** Automatically used in `App.jsx`
-
----
-
-#### `Loading`
-
-Loading spinner component.
-
-**Location:** `src/components/Loading/Loading.jsx`
-
-**Usage:**
-
-```jsx
-import Loading from "./components/Loading/Loading";
-
-{
-  isLoading && <Loading />;
-}
-```
-
----
-
-### Custom Hooks
-
-#### `usePersistedQuery`
-
-Custom React Query hook with localStorage persistence.
-
-**Location:** `src/components/usePersistedQuery.js`
-
-**Usage:**
+- **useMutation:** Used for login, form submissions (applications, emails). See `AdminLogin.jsx`, `ApplicationForm.jsx`, `Contact.jsx`.
+- **usePersistedQuery:** Used in `AdminDashboard.jsx` for applications list (cache in localStorage). Use when you want to show cached data while refetching.
 
 ```jsx
 import { usePersistedQuery } from "./components/usePersistedQuery";
 
-const { data, isLoading, error } = usePersistedQuery({
+const { data, isLoading, refetch } = usePersistedQuery({
   queryKey: ["applications"],
   queryFn: async () => {
-    const response = await fetch(`${apiBaseUrl}/api/applications`);
-    if (!response.ok) throw new Error("Failed to fetch");
-    return response.json();
+    const res = await fetch(`${apiBaseUrl}/api/applications`);
+    if (!res.ok) throw new Error("Failed to fetch");
+    return res.json();
   },
-  options: {
-    staleTime: 1000 * 60 * 5, // 5 minutes
-  },
+  options: { staleTime: 1000 * 60 * 5 },
 });
 ```
 
----
+### Animations (Framer Motion)
 
-## ⚙️ Core Functionalities
-
-### Form Handling with React Hook Form + Zod
-
-The application uses React Hook Form for form management and Zod for schema validation.
-
-#### Example: Contact Form
+From `src/utility/animation.js`:
 
 ```jsx
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { slideUp, slideBottom } from "../utility/animation";
+import { motion } from "framer-motion";
 
-const ContactSchema = z.object({
-  fullname: z.string().min(2, "Name is required"),
-  email: z.string().email("Invalid email"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
-
-function ContactForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: zodResolver(ContactSchema),
-  });
-
-  const onSubmit = async (data) => {
-    // Handle form submission
-    const response = await fetch("/api/send-email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-  };
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("fullname")} />
-      {errors.fullname && <p>{errors.fullname.message}</p>}
-      {/* More fields */}
-    </form>
-  );
-}
+<motion.div
+  variants={slideUp(0.2)}
+  initial="initial"
+  whileInView="animate"
+  viewport={{ once: true }}
+>
+  Content
+</motion.div>;
 ```
+
+### Layout and navigation
+
+- **Navbar:** Replace `navItems` and `searchableItems` with your own links and search targets.
+- **Footer:** Edit links and social URLs in `Footer.jsx`; reuse `PartnersSection` and `AffiliatesSection` with your own data.
+- **ScrollToTop:** Drop into your router layout so every route change scrolls to top.
+
+### Reusing in another project
+
+- Copy `src/components/ui/*` for buttons/inputs/textareas.
+- Copy `src/utility/animation.js` and use the same Framer Motion pattern.
+- Copy the form + Zod + mutation pattern from one of the form components.
+- For a new API, duplicate the structure of `server/applicationRoutes.js` or `server/emailRoutes.js` and mount the router in `server.js`.
 
 ---
 
-### Data Fetching with React Query
+## Keywords
 
-React Query is used for efficient data fetching and caching.
-
-#### Example: Fetching Applications
-
-```jsx
-import { useQuery } from "@tanstack/react-query";
-
-function AdminDashboard() {
-  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL_RENDER;
-
-  const { data, isLoading, error, refetch } = useQuery({
-    queryKey: ["applications"],
-    queryFn: async () => {
-      const response = await fetch(`${apiBaseUrl}/api/applications`);
-      if (!response.ok) throw new Error("Failed to fetch");
-      return response.json();
-    },
-    staleTime: 1000 * 60 * 5, // Cache for 5 minutes
-  });
-
-  if (isLoading) return <Loading />;
-  if (error) return <div>Error: {error.message}</div>;
-
-  return <div>{/* Render applications */}</div>;
-}
-```
+Sernitas Care, home nursing care, Pflege, ambulanter Pflegedienst, React full-stack, Express.js, MongoDB, Prisma, Vite, React Query, React Hook Form, Zod, Tailwind CSS, Framer Motion, admin dashboard, job applications, contact form, Nodemailer, SMTP, PWA, service worker, Coolify, Netlify, educational project, open source.
 
 ---
 
-### Mutations with React Query
+## Conclusion
 
-For creating, updating, or deleting data:
+Sernitas Care is a full-stack example combining a React (Vite) frontend with an Express + MongoDB backend, Prisma for data access, and Nodemailer for emails. It demonstrates:
 
-```jsx
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+- Structured React routing and layout (conditional footer, error boundary).
+- Form handling and validation (React Hook Form + Zod) and server state (React Query, optional persistence).
+- REST API design (applications CRUD, admin login, multiple email endpoints).
+- Environment-based configuration for backend and frontend.
+- Optional PWA and Docker deployment.
 
-function ApplicationForm() {
-  const queryClient = useQueryClient();
-
-  const mutation = useMutation({
-    mutationFn: async (data) => {
-      const response = await fetch("/api/applications", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!response.ok) throw new Error("Failed to submit");
-      return response.json();
-    },
-    onSuccess: () => {
-      // Invalidate and refetch applications
-      queryClient.invalidateQueries({ queryKey: ["applications"] });
-    },
-  });
-
-  const onSubmit = (data) => {
-    mutation.mutate(data);
-  };
-
-  return <form onSubmit={handleSubmit(onSubmit)}>{/* Form fields */}</form>;
-}
-```
+Use this repo as a reference for similar apps or as a base to adapt for other care-service or form-heavy sites.
 
 ---
 
-### Database Operations with Prisma
+## License
 
-Prisma provides type-safe database access.
-
-#### Example: Creating an Application
-
-```javascript
-// server/applicationRoutes.js
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
-
-router.post("/api/applications", async (req, res) => {
-  try {
-    const application = await prisma.application.create({
-      data: {
-        ...req.body,
-        status: "Pending",
-      },
-    });
-    res.status(201).json(application);
-  } catch (error) {
-    res.status(500).json({ error: "Failed to save application" });
-  }
-});
-```
-
-#### Example: Fetching All Applications
-
-```javascript
-router.get("/api/applications", async (req, res) => {
-  try {
-    const applications = await prisma.application.findMany({
-      orderBy: { createdAt: "desc" },
-    });
-    res.status(200).json(applications);
-  } catch (error) {
-    res.status(500).json({ error: "Failed to fetch applications" });
-  }
-});
-```
-
----
-
-### Email Sending with Nodemailer
-
-The application uses Nodemailer to send emails via SMTP.
-
-#### Example: Sending Email
-
-```javascript
-// server/emailRoutes.js
-import nodemailer from "nodemailer";
-
-router.post("/api/send-email", async (req, res) => {
-  const { fullname, email, phone, message } = req.body;
-
-  // Configure transporter
-  let transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: process.env.SMTP_PORT,
-    secure: process.env.SMTP_SECURE === "true",
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
-
-  // Email options
-  const mailOptions = {
-    from: `"Sernitas Care" <${process.env.EMAIL_USER}>`,
-    to: `${process.env.EMAIL_USER}, ${process.env.HR_USER}`,
-    subject: `New Message from ${fullname}`,
-    text: `Name: ${fullname}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
-  };
-
-  // Send email
-  await transporter.sendMail(mailOptions);
-  res.status(200).json({ message: "Email sent successfully" });
-});
-```
-
----
-
-### Password Hashing with bcrypt
-
-Admin passwords are hashed using bcrypt for security.
-
-**Generating Hash:**
-
-```javascript
-// hashPassword.js
-import bcrypt from "bcrypt";
-
-const password = process.env.ADMIN_PASSWORD;
-const saltRounds = 10;
-
-bcrypt.hash(password, saltRounds, (err, hash) => {
-  console.log(hash); // Use this in ADMIN_PASSWORD_HASH
-});
-```
-
-**Verifying Password:**
-
-```javascript
-// server/applicationRoutes.js
-import bcrypt from "bcrypt";
-
-const isPasswordValid = await bcrypt.compare(
-  password,
-  process.env.ADMIN_PASSWORD_HASH,
-);
-```
-
----
-
-## 🔄 Reusing Components
-
-### Using UI Components in Other Projects
-
-The UI components (`Button`, `Input`, `Textarea`) are designed to be reusable.
-
-#### Step 1: Copy Component Files
-
-Copy the component files from `src/components/ui/` to your project.
-
-#### Step 2: Install Dependencies
-
-```bash
-npm install tailwindcss  # If using Tailwind CSS
-```
-
-#### Step 3: Import and Use
-
-```jsx
-import { Button } from "./components/ui/button";
-import { Input } from "./components/ui/input";
-
-function MyForm() {
-  return (
-    <form>
-      <Input type="text" placeholder="Enter name" />
-      <Button type="submit">Submit</Button>
-    </form>
-  );
-}
-```
-
----
-
-### Using Form Validation Pattern
-
-The Zod + React Hook Form pattern can be reused in any React project.
-
-#### Step 1: Install Dependencies
-
-```bash
-npm install react-hook-form @hookform/resolvers zod
-```
-
-#### Step 2: Create Validation Schema
-
-```javascript
-import { z } from "zod";
-
-const MyFormSchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.string().email("Invalid email"),
-});
-```
-
-#### Step 3: Use in Component
-
-```jsx
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-
-function MyForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: zodResolver(MyFormSchema),
-  });
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("name")} />
-      {errors.name && <p>{errors.name.message}</p>}
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
-```
-
----
-
-### Using React Query Pattern
-
-React Query can be used for any data fetching needs.
-
-**Basic Setup:**
-
-```jsx
-// reactQueryClient.js
-import { QueryClient } from "@tanstack/react-query";
-
-export const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 5,
-      cacheTime: 1000 * 60 * 5,
-    },
-  },
-});
-```
-
-**Using in Components:**
-
-```jsx
-import { useQuery } from "@tanstack/react-query";
-
-function DataComponent() {
-  const { data, isLoading } = useQuery({
-    queryKey: ["data"],
-    queryFn: fetchData,
-  });
-
-  if (isLoading) return <div>Loading...</div>;
-  return <div>{/* Render data */}</div>;
-}
-```
-
----
-
-### Using Prisma ORM Pattern
-
-Prisma can be used in any Node.js project with MongoDB, PostgreSQL, MySQL, etc.
-
-#### Step 1: Initialize Prisma
-
-```bash
-npx prisma init
-```
-
-#### Step 2: Define Schema
-
-```prisma
-// prisma/schema.prisma
-model User {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  name  String
-  email String @unique
-}
-```
-
-#### Step 3: Generate Client
-
-```bash
-npx prisma generate
-```
-
-#### Step 4: Use in Code
-
-```javascript
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
-
-const users = await prisma.user.findMany();
-```
-
----
-
-## 🚀 Deployment
-
-### Frontend Deployment (Netlify)
-
-1. **Build the project:**
-
-   ```bash
-   npm run build
-   ```
-
-2. **Configure Netlify:**
-   - Connect your GitHub repository
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-   - Add environment variables in Netlify dashboard (only `VITE_` prefixed variables)
-
-3. **Deploy:**
-   - Netlify will automatically deploy on push to main branch
-   - Or deploy manually via Netlify CLI
-
----
-
-### Backend Deployment (Docker/Coolify)
-
-The project includes a `Dockerfile` for containerized deployment.
-
-**Build Docker Image:**
-
-```bash
-docker build -t sernitas-care-backend .
-```
-
-**Run Container:**
-
-```bash
-docker run -p 5000:5000 --env-file .env sernitas-care-backend
-```
-
-**Deploy to Coolify:**
-
-1. Push code to GitHub
-2. Create new application in Coolify
-3. Connect GitHub repository
-4. Select Dockerfile as build pack
-5. Configure environment variables
-6. Deploy
-
----
-
-### Environment Variables in Production
-
-**Frontend (Netlify):**
-
-- Only add `VITE_` prefixed variables
-- Do NOT add backend secrets
-
-**Backend (Coolify/VPS):**
-
-- Add all backend environment variables
-- Do NOT prefix with `VITE_`
-- Keep sensitive data secure
-
----
-
-## 🏷 Keywords
-
-- React
-- Express.js
-- MongoDB
-- Prisma
-- Full-stack
-- Web application
-- Home nursing care
-- Job application system
-- Admin dashboard
-- Email notifications
-- Form validation
-- React Query
-- Tailwind CSS
-- Vite
-- Docker
-- RESTful API
-- Type-safe database
-- Responsive design
-- German healthcare
-- Pflegedienst
-
----
-
-## 📝 Conclusion
-
-Sernitas Care is a comprehensive full-stack web application demonstrating modern web development practices. It combines a responsive React frontend with a robust Express.js backend, showcasing:
-
-- **Modern React Patterns**: Hooks, context, custom hooks, error boundaries
-- **Form Management**: React Hook Form with Zod validation
-- **State Management**: React Query for server state
-- **Database Integration**: Prisma ORM with MongoDB
-- **Email Functionality**: Nodemailer for automated emails
-- **Security**: Password hashing, environment variables, CORS
-- **Deployment**: Docker containerization, CI/CD ready
-
-This project serves as an excellent learning resource for understanding:
-
-- Full-stack JavaScript development
-- React best practices
-- RESTful API design
-- Database modeling with Prisma
-- Email integration
-- Form validation patterns
-- Production deployment strategies
-
----
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the code as per the terms of the license.
 
 ## Happy Coding! 🎉
 
-Feel free to use this project repository and extend this project further!
+This is an **open-source project** - feel free to use, enhance, and extend this project further!
 
-If you have any questions or want to share your work, reach out via GitHub or my portfolio at [https://arnob-mahmud.vercel.app/](https://arnob-mahmud.vercel.app/).
+If you have any questions or want to share your work, reach out via GitHub or my portfolio at [https://www.arnobmahmud.com](https://www.arnobmahmud.com).
 
 **Enjoy building and learning!** 🚀
 
 Thank you! 😊
-
----

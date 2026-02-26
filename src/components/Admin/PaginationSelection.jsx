@@ -1,3 +1,4 @@
+/** Dropdown to choose rows-per-page (4–30). Used in AdminDashboard; parent holds pageIndex and pageSize. */
 import PropTypes from "prop-types";
 
 const PaginationSelection = ({ pagination, setPagination }) => {

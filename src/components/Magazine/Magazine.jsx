@@ -1,3 +1,4 @@
+/** Magazine: Team/magazine-style section with member cards and images (if used in app). */
 import { motion } from "framer-motion";
 
 import MagazineImg1 from "../../assets/nurse-1.jpg";

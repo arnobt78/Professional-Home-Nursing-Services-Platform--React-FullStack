@@ -1,3 +1,7 @@
+/**
+ * Navbar: Main site navigation with dropdowns, search, and mobile menu.
+ * Features: desktop dropdowns (hover), site search, mobile hamburger menu, fixed positioning.
+ */
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { slideBottom } from "../../utility/animation";
@@ -10,17 +14,18 @@ import CachedImage from "../CachedImage";
 const Navbar = () => {
   const navigate = useNavigate();
 
+  // UI state: mobile menu open/closed, which dropdown is active, search visibility and data
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false); // State for search bar
   const [searchQuery, setSearchQuery] = useState(""); // State for search input
   const [searchResults, setSearchResults] = useState([]); // State for search results
-  const [isSearchListVisible, setIsSearchListVisible] = useState(false); // State for search list visibility
+  const [_isSearchListVisible, _setIsSearchListVisible] = useState(false); // Reserved for future search list visibility
 
-  const searchRef = useRef(null); // Ref for the search bar container
-  const inputRef = useRef(null); // Ref for the search input
+  const searchRef = useRef(null); // Ref for the search bar container (used for click-outside detection)
+  const _inputRef = useRef(null); // Reserved for search input ref
 
-  // Define hideDropdownTimeout
+  // Used to delay closing dropdown on mouse leave so user can move to submenu
   let hideDropdownTimeout;
 
   const toggleMenu = () => {
@@ -33,11 +38,12 @@ const Navbar = () => {
     setSearchResults([]); // Clear search results
   };
 
+  // Filter site pages by search query; results link to internal routes
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
     setSearchQuery(query);
 
-    // Example searchable items (replace with actual data from your project)
+    // Searchable items: titles and routes for main site sections (services, about, wissenswertes, legal)
     const searchableItems = [
       { title: "Unsere Leistungen", link: "/services/grundpflege" },
       { title: "Grundpflege", link: "/services/grundpflege" },
@@ -72,7 +78,7 @@ const Navbar = () => {
 
     // Filter results based on the query
     const results = searchableItems.filter((item) =>
-      item.title.toLowerCase().includes(query)
+      item.title.toLowerCase().includes(query),
     );
     setSearchResults(results);
   };
@@ -82,7 +88,7 @@ const Navbar = () => {
     setIsSearchOpen(false); // Close the search bar
   };
 
-  // Close search bar when clicking outside
+  // Close search bar when user clicks outside the search container
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
@@ -96,35 +102,7 @@ const Navbar = () => {
     };
   }, []);
 
-  // Close search bar or list when clicking outside
-  // useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (
-  //       searchRef.current &&
-  //       !searchRef.current.contains(event.target) &&
-  //       inputRef.current &&
-  //       !inputRef.current.contains(event.target)
-  //     ) {
-  //       // Hide both search bar and search list when clicking outside the entire search bar area
-  //       setIsSearchListVisible(false);
-  //       setIsSearchOpen(false);
-  //     } else if (
-  //       searchRef.current &&
-  //       searchRef.current.contains(event.target) &&
-  //       inputRef.current &&
-  //       !inputRef.current.contains(event.target)
-  //     ) {
-  //       // Hide only the search list when clicking inside the search bar area but outside the search list
-  //       setIsSearchListVisible(false);
-  //     }
-  //   };
-
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, []);
-
+  // Navigation structure: top-level labels and sub-items with links (used for desktop dropdowns and mobile menu)
   const navItems = [
     {
       title: "Unsere Leistungen",
@@ -215,10 +193,10 @@ const Navbar = () => {
                       item.title === "Unsere Leistungen"
                         ? "/services/grundpflege"
                         : item.title === "Über uns"
-                        ? "/about-us/wir-sind-sernitas"
-                        : item.title === "Wissenswertes"
-                        ? "/wissenswertes/faq"
-                        : "/"
+                          ? "/about-us/wir-sind-sernitas"
+                          : item.title === "Wissenswertes"
+                            ? "/wissenswertes/faq"
+                            : "/"
                     }
                     className="uppercase text-md font-bold hover:text-secondary flex items-center justify-center"
                   >

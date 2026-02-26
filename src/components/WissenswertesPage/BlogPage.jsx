@@ -1,3 +1,4 @@
+/** BlogPage: Single blog post view (route /pflege-blog/:id). Includes comment form submitting to POST /api/send-comment. */
 import { useParams, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useState } from "react";

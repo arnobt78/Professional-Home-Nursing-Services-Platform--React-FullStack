@@ -1,3 +1,4 @@
+/** About Us sub-page: Leitbild (mission/values) content with image. */
 import HeroImage from "../../assets/aboutPage/hero-2.jpg";
 
 import CachedImage from "../CachedImage";

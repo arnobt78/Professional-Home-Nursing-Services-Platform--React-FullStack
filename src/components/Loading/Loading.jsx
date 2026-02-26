@@ -1,3 +1,4 @@
+/** Loading: Full-screen spinner with "Lädt..." text. Used as Suspense fallback or inline loading state. */
 const Loading = () => {
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">

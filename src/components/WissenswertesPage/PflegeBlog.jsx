@@ -81,6 +81,7 @@
 
 // export default PflegeBlog;
 
+/** PflegeBlog: List of blog posts from blogData; each links to /pflege-blog/:id (BlogPage). */
 import blogData from "./blogData";
 import CachedImage from "../CachedImage";
 

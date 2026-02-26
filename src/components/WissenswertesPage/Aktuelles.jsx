@@ -1,3 +1,4 @@
+/** Aktuelles: Wissenswertes sub-page for news/updates with image cards. */
 import newsImg1 from "../../assets/wissenswertesPage/aktuelles/news-1.png";
 import newsImg2 from "../../assets/wissenswertesPage/aktuelles/news-2.png";
 import newsImg3 from "../../assets/wissenswertesPage/aktuelles/news-3.png";

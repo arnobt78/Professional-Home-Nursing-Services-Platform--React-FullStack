@@ -1,10 +1,13 @@
+/**
+ * AccordionSection: FAQ block on homepage. Data from ./data; only one item open at a time (activeQuestionId).
+ */
 import { motion } from "framer-motion";
 import { useState } from "react";
 
 import accordionData from "./data";
 import SingleAccordion from "./SingleAccordion";
 
-// Animation function for sliding up
+// Local slide-up animation for section header
 const slideUp = (delay = 0) => ({
   initial: { opacity: 0, y: 50 },
   animate: {

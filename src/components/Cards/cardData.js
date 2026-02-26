@@ -1,3 +1,4 @@
+/** Service cards data: id, title, description, image, details (HTML string for modal). */
 // import Img11 from "../../assets/icon/ambulance-1.svg";
 import Img4 from "../../assets/icon/care-1.svg";
 // import Img3 from "../../assets/icon/handshake-1.svg";
@@ -10,8 +11,6 @@ import Img8 from "../../assets/icon/nurse-2.svg";
 import Img1 from "../../assets/icon/time-1.svg";
 import Img2 from "../../assets/icon/care-2.svg";
 import Img7 from "../../assets/icon/nurse-1.svg";
-
-import CachedImage from "../CachedImage";
 
 export const cardsData = [
   {

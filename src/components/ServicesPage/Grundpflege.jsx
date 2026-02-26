@@ -1,3 +1,4 @@
+/** Services sub-page: Grundpflege (basic care) content and image. */
 import { FaCheckCircle } from "react-icons/fa";
 
 import Image from "../../assets/servicePage/service-5.png";

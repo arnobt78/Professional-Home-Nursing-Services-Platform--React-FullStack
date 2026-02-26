@@ -1,3 +1,4 @@
+/** PflegeRatgeber: List of guide entries from ratgeberData; each links to /pflege-ratgeber/:id (RatgeberPage). */
 import ratgeberData from "./ratgeberData";
 
 import CachedImage from "../CachedImage";

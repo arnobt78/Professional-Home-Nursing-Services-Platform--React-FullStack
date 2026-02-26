@@ -1,3 +1,7 @@
+/**
+ * Service Worker: Caches static assets (icons, images) for offline/PWA support.
+ * On install, opens "static-assets" cache and pre-caches listed URLs.
+ */
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open("static-assets").then((cache) => {

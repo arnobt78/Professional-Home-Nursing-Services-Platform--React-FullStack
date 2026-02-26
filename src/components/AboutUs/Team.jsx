@@ -1,3 +1,4 @@
+/** About Us sub-page: Team members grid with names and titles. */
 import HRImg1 from "../../assets/aboutPage/hr-1.jpg";
 import HRImg2 from "../../assets/aboutPage/hr-2.png";
 import HRImg3 from "../../assets/aboutPage/hr-3.jpg";

@@ -1,3 +1,7 @@
+/**
+ * ScrollToTop: Resets scroll position when the route changes.
+ * Without this, users would stay at the same scroll position when navigating to a new page.
+ */
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 

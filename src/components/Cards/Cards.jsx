@@ -1,3 +1,7 @@
+/**
+ * Cards: Homepage section "Unsere Leistungen auf einen Blick" – grid of service cards from cardData.
+ * Clicking a card opens CardModal with full HTML details. Uses Framer Motion for scroll animations.
+ */
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { slideUp } from "../../utility/animation";

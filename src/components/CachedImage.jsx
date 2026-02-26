@@ -23,7 +23,11 @@
 
 // export default CachedImage;
 
-import React, { useEffect, forwardRef } from "react";
+/**
+ * CachedImage: img that also adds the image to the Cache API (dynamic-assets) for offline/PWA.
+ * Uses forwardRef so ref can be passed to the underlying img. Exports both plain and motion-wrapped version.
+ */
+import { useEffect, forwardRef } from "react";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 

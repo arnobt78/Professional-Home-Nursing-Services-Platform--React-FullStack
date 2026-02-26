@@ -1,3 +1,4 @@
+/** AboutUsPage: Tabbed layout for About sub-pages (Wir Sind Sernitas, Team, Leitbild, Kooperationsnetzwerk, Mitgliedschaft BAP). */
 import { NavLink, Routes, Route, useLocation } from "react-router-dom";
 
 import WirSindSernitas from "./WirSindSernitas";

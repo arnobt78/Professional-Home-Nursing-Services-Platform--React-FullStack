@@ -1,3 +1,4 @@
+/** Services sub-page: Behandlungspflege (treatment care) content and images. */
 import { FaCheckCircle } from "react-icons/fa";
 
 import rightImage from "../../assets/servicePage/service-7.png";

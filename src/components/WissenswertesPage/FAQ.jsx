@@ -1,3 +1,4 @@
+/** FAQ: Wissenswertes sub-page reusing AccordionSection for frequently asked questions. */
 import AccordionSection from "../Accordion/AccordionSection";
 
 const FAQ = () => {
@@ -58,6 +59,5 @@ const FAQ = () => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components -- default export is the FAQ component
 export default FAQ;
-
-// Ensure this file only exports the FAQ component

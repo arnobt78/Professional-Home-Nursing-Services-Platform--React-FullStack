@@ -1,3 +1,4 @@
+/** About Us sub-page: Kooperationsnetzwerk (cooperation network) content. */
 const Kooperationsnetzwerk = () => {
   return (
     <div className="py-12 xl:py-24 px-6 lg:px-12 xl:px-44 space-y-12">

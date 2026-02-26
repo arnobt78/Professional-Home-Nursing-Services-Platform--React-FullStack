@@ -10,6 +10,7 @@
     "dev": "vite",
     "build": "npx prisma generate && vite build",
     "lint": "eslint .",
+    "check": "npm run lint && npm run build",
     "preview": "vite preview",
     "prisma:migrate": "prisma migrate dev"
   },

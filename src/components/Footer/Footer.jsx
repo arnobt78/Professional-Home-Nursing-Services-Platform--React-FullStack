@@ -1,3 +1,7 @@
+/**
+ * Footer: Site footer with logo, social links, quick links, and optional Partners/Affiliates sections.
+ * Renders ScrollToTop and AffiliatesSection above the main footer. Uses Framer Motion for staggered row animations.
+ */
 import { motion } from "framer-motion";
 
 import ScrollToTop from "../ScrollToTop";

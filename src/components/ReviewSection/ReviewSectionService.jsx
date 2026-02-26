@@ -1,3 +1,4 @@
+/** ReviewSectionService: Service page review/testimonial section with video modal. */
 import { useState } from "react";
 import Modal from "react-modal";
 import { FaPlay } from "react-icons/fa";

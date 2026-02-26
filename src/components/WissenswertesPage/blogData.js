@@ -1,3 +1,4 @@
+/** Blog post entries: id, title, image, content (HTML), date, etc. Used by PflegeBlog and BlogPage. */
 import blogImg1 from "../../assets/wissenswertesPage/blog/blog-1.png";
 import blogImg2 from "../../assets/wissenswertesPage/blog/blog-2.png";
 import blogImg3 from "../../assets/wissenswertesPage/blog/blog-3.png";
@@ -8,8 +9,6 @@ import blogImg7 from "../../assets/wissenswertesPage/blog/blog-7.png";
 import blogImg8 from "../../assets/wissenswertesPage/blog/blog-8.png";
 import blogImg9 from "../../assets/wissenswertesPage/blog/blog-9.png";
 import blogImg10 from "../../assets/wissenswertesPage/blog/blog-10.png";
-
-import CachedImage from "../CachedImage";
 
 const blogData = [
   {

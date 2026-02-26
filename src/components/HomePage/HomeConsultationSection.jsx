@@ -1,3 +1,4 @@
+/** HomeConsultationSection: Homepage block for home consultation request (name, phone, consent). Sends POST /api/send-home-consultation-email. */
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { Input } from "../ui/input";

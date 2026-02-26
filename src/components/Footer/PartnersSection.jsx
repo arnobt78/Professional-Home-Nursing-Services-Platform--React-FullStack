@@ -1,3 +1,4 @@
+/** PartnersSection: Footer area showing partner logos (Sernitas Group, HR, Kliniken, Institute) with links. */
 import { motion } from "framer-motion";
 
 import SernitasGroup from "../../assets/footerSection/sernitas-group.png";

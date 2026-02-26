@@ -14,17 +14,14 @@
 // 
 // ========================================================================
 
-// Database Connection Configuration
 datasource db {
-  provider = "mongodb"                    // Database provider (MongoDB)
-  url      = env("DATABASE_URL")          // Connection string from environment variable
+  provider = "mongodb" // Database provider (MongoDB)
+  url      = env("DATABASE_URL") // Connection string from environment variable
   // DATABASE_URL format: mongodb://user:password@host:port/database?options
 }
 
-// Prisma Client Generator Configuration
 generator client {
-  provider = "prisma-client-js"          // Generate JavaScript/TypeScript client
-  // This generates the PrismaClient class used in applicationRoutes.js
+  provider = "prisma-client-js" // Generate JavaScript/TypeScript client; @prisma/client forwards to this
 }
 
 /**

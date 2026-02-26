@@ -1,3 +1,4 @@
+/** MapSection: Homepage section "Für Sie durch das Revier" with contact info and map image. */
 import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 import mapImage from "../../assets/homePage/map-1.jpg";

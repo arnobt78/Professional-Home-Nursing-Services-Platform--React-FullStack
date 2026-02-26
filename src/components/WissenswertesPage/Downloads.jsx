@@ -1,3 +1,4 @@
+/** Downloads: Wissenswertes sub-page listing downloadable materials (brochures, links). */
 import { FiDownload } from "react-icons/fi";
 
 const Downloads = () => {

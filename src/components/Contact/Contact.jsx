@@ -1,3 +1,6 @@
+/**
+ * Contact: Contact page with form (name, email, phone, message). Validates with Zod, submits via POST /api/send-email.
+ */
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useMutation } from "@tanstack/react-query"; // Import useMutation
@@ -14,7 +17,7 @@ import bewerben1 from "../../assets/karrierePage/bewerben-1.png";
 
 import CachedImage from "../CachedImage";
 
-// Define validation schema using zod
+// Zod schema for contact form validation (German error messages)
 const schema = z.object({
   fullname: z.string().min(1, "Vollständiger Name ist erforderlich"),
   email: z.string().email("Ungültige E-Mail-Adresse"),
@@ -66,7 +69,7 @@ const Contact = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // Determine the API base URL dynamically
+  // API base URL for backend (local in dev, production URL in build)
   const apiBaseUrl =
     import.meta.env.MODE === "development"
       ? import.meta.env.VITE_API_BASE_URL_LOCAL // Local backend

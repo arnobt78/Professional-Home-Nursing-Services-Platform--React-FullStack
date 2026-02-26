@@ -1,3 +1,7 @@
+/**
+ * AdminLogin: Form to authenticate admin. Calls POST /api/admin/login (email + password).
+ * On success calls onLogin() so parent (Admin) switches to AdminDashboard.
+ */
 import { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
@@ -13,7 +17,7 @@ const AdminLogin = ({ onLogin }) => {
       ? import.meta.env.VITE_API_BASE_URL_LOCAL // Local backend
       : import.meta.env.VITE_API_BASE_URL_RENDER; // Render backend
 
-  // Define the mutation function
+  // React Query mutation for login; backend validates against ADMIN_EMAIL and ADMIN_PASSWORD_HASH
   const mutation = useMutation({
     mutationFn: async ({ email, password }) => {
       const response = await axios.post(`${apiBaseUrl}/api/admin/login`, {

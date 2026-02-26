@@ -1,3 +1,4 @@
+/** Ratgeber (guide) entries: id, title, image, content, etc. Used by PflegeRatgeber and RatgeberPage. */
 import ratgeberImg1 from "../../assets/wissenswertesPage/ratgeber/ratgeber-1.png";
 import ratgeberImg2 from "../../assets/wissenswertesPage/ratgeber/ratgeber-2.png";
 import ratgeberImg3 from "../../assets/wissenswertesPage/ratgeber/ratgeber-3.png";
@@ -14,8 +15,6 @@ import ratgeberImg13 from "../../assets/wissenswertesPage/ratgeber/ratgeber-13.p
 import ratgeberImg14 from "../../assets/wissenswertesPage/ratgeber/ratgeber-14.png";
 import ratgeberImg15 from "../../assets/wissenswertesPage/ratgeber/ratgeber-15.png";
 import ratgeberImg16 from "../../assets/wissenswertesPage/ratgeber/ratgeber-16.png";
-
-import CachedImage from "../CachedImage";
 
 const blogData = [
   {

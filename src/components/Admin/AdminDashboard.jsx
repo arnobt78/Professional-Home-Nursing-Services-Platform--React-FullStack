@@ -1,3 +1,7 @@
+/**
+ * AdminDashboard: Lists all applications with pagination, status update, delete, and detail view.
+ * Uses usePersistedQuery to fetch GET /api/applications; PATCH/DELETE for status and delete.
+ */
 import { useState } from "react";
 import { usePersistedQuery } from "../usePersistedQuery";
 import ApplicantDetails from "./ApplicantDetails";
@@ -76,7 +80,7 @@ const AdminDashboard = () => {
     }
   };
 
-  // Calculate paginated data
+  // Client-side pagination: slice the full list by current page and page size
   const paginatedApplications = applications.slice(
     pagination.pageIndex * pagination.pageSize,
     (pagination.pageIndex + 1) * pagination.pageSize

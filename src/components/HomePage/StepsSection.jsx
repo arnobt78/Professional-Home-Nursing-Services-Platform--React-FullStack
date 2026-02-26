@@ -1,3 +1,4 @@
+/** StepsSection: Homepage "So einfach geht's" – step-by-step explanation with icons. */
 import { FaPhoneAlt, FaCar, FaFileAlt, FaHome } from "react-icons/fa";
 
 const StepsSection = () => {

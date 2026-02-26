@@ -216,17 +216,11 @@
 // Current implementation: Direct imports (non-lazy loading)
 // Alternative: Lazy-loaded version is commented out above for reference
 import React, { useMemo } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 // Core Layout Components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import Loading from "./components/Loading/Loading";
 import PageNotFound from "./components/PageNotFound";
 import SideHoverIcons from "./components/SideHoverIcons";
 

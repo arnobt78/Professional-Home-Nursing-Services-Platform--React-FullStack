@@ -142,6 +142,7 @@
 
 // export default Hero;
 
+/** Hero: Homepage hero with background video, CTA buttons (application form, contact), and optional video modal. */
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Modal from "react-modal";

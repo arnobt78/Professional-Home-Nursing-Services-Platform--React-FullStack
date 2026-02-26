@@ -1,3 +1,4 @@
+/** AffiliatesSection: Footer area showing affiliate/partner logos (BPA, KABS, clinics, etc.) in a grid. */
 import { motion } from "framer-motion";
 
 import BPA from "../../assets/footerSection/bpa.png";

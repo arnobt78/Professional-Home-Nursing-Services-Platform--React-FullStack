@@ -1,3 +1,4 @@
+/** WissenswertesPage: Tabbed layout for FAQ, Aktuelles, Pflege-Blog, Pflege-Ratgeber, Downloads with nested Routes. */
 import { NavLink, Routes, Route, useLocation } from "react-router-dom";
 
 import FAQ from "./FAQ";

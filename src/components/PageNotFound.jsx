@@ -1,3 +1,4 @@
+/** 404 page: Shown when route does not match any defined route (App.jsx wildcard route). */
 const PageNotFound = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100 text-center">

@@ -1,3 +1,4 @@
+/** FAQ entries for the homepage accordion (question + answer). */
 const accordionData = [
   {
     id: 1,

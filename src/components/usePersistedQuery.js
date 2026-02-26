@@ -48,11 +48,15 @@
 
 import { useQuery } from "@tanstack/react-query";
 
-// Updated usePersistedQuery to use the object-based signature for React Query v5
+/**
+ * usePersistedQuery: React Query useQuery with localStorage persistence.
+ * While loading, returns previously cached data (if any) so UI shows last data immediately.
+ * Cache key is JSON.stringify(queryKey). Used by AdminDashboard for applications list.
+ */
 export const usePersistedQuery = ({ queryKey, queryFn, options = {} }) => {
   const cachedData = localStorage.getItem(JSON.stringify(queryKey));
 
-  // Always call useQuery
+  // Always call useQuery (required by React hooks rules)
   const queryResult = useQuery({
     queryKey,
     queryFn,

@@ -1,3 +1,4 @@
+/** Services sub-page: 24h Rufbereitschaft (on-call) content and image. */
 import serviceImage from "../../assets/servicePage/service-15.png";
 
 import CachedImage from "../CachedImage";

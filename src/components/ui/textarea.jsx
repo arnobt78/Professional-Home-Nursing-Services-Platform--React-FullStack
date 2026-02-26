@@ -1,3 +1,4 @@
+/** Styled textarea for forms. Forwards ref for use with react-hook-form. */
 import * as React from "react";
 import PropTypes from "prop-types";
 

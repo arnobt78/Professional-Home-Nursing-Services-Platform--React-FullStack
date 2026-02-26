@@ -1,3 +1,4 @@
+/** RatgeberPage: Single guide article view (route /pflege-ratgeber/:id). Data from ratgeberData. */
 import { useParams, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 

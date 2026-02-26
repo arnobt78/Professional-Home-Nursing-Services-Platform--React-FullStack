@@ -1,3 +1,4 @@
+/** Single accordion item: clickable header (title), expandable body (info). Parent controls isActive and onToggle. */
 import { motion } from "framer-motion";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import PropTypes from "prop-types";

@@ -1,3 +1,4 @@
+/** Services sub-page: Verhinderungspflege (relief care) content and images. */
 import familyImage from "../../assets/servicePage/service-10.png";
 import infoIcon from "../../assets/servicePage/service-11.png";
 

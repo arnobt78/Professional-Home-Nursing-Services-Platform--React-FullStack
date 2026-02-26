@@ -195,6 +195,7 @@
 
 // export default ReviewSection;
 
+/** ReviewSectionHome: Homepage review/testimonial section with image and video modal. */
 import { useState } from "react";
 import Modal from "react-modal";
 import { FaPlay } from "react-icons/fa";

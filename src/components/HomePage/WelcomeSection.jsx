@@ -1,3 +1,4 @@
+/** WelcomeSection: Homepage intro block "Herzlich Willkommen bei Sernitas Care" with image and text. */
 import { motion } from "framer-motion";
 
 import teamImage from "../../assets/homePage/service-3.jpg";

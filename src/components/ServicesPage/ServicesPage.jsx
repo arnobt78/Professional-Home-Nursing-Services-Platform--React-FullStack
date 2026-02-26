@@ -1,3 +1,4 @@
+/** ServicesPage: Tabbed layout for service sub-pages (Grundpflege, Behandlungspflege, Verhinderungspflege, etc.) with nested Routes. */
 import { NavLink, Routes, Route, useLocation } from "react-router-dom";
 
 import Grundpflege from "./Grundpflege";
